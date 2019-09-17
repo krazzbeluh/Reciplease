@@ -1,5 +1,5 @@
 //
-//  RecipeListViewController.swift
+//  RecipeViewController.swift
 //  Reciplease
 //
 //  Created by Paul Leclerc on 17/09/2019.
@@ -8,13 +8,8 @@
 
 import UIKit
 
-class RecipeListViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-    }
-    
+class RecipeViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +28,7 @@ class RecipeListViewController: UIViewController {
 
 }
 
-extension RecipeListViewController: UITableViewDataSource {
+extension RecipeViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -44,14 +39,14 @@ extension RecipeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell",
-                                                       for: indexPath) as? RecipeTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell",
+                                                       for: indexPath) as? IngredientTableViewCell else {
                                                         return UITableViewCell()
         }
         
-        let ingredients = ["Tomatoes", "Mushroom"]
+        let ingredient = "Tomatoes"
         
-        cell.configure(name: "Tomato soup", ingredients: ingredients, image: #imageLiteral(resourceName: "DefaultImageCatalog"), mark: 3.6, cookingTime: 60)
+        cell.configure(name: ingredient)
         
         return cell
     }

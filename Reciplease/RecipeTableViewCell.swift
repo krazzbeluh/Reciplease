@@ -25,5 +25,19 @@ class RecipeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configure(name: String, ingredients: [String], image: UIImage, mark: Float, cookingTime: Int) {
+        nameLabel.text = name
+        dishImage.image = image
+        self.mark.text = String(mark)
+        self.cookingTime.text = String(cookingTime) + "m "
+        
+        var ingredientsList = ""
+        for ingredient in ingredients {
+            ingredientsList += ingredient + " "
+        }
+        
+        self.ingredientsList.text = ingredientsList
+    }
 
 }
