@@ -1,0 +1,15 @@
+disabled_rules:
+- trailing_whitespace
+- force_cast
+- private_over_fileprivate
+- force_try
+- empty_enum_arguments
+- class_delegate_protocol
+identifier_name:
+min_length: # only min_length
+error: 3 # only error
+excluded: # excluded via string array
+- i
+- j
+- p
+- n
