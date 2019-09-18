@@ -22,15 +22,22 @@ class PreSearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToRequestList" {
+            let successVC = segue.destination as! RecipeListViewController
+            successVC.recipes = [Recipe(name: "Double-Crust Chicken and Mushroom Pie",
+                                        image: "https://www.edamam.com/web-img/9fd/9fd0a2fa6bc6f6b8199d17ce0385cb47.jpg", //swiftlint:disable:this line_length
+                                        recipe: "http://www.marthastewart.com/356426/double-crust-chicken-and-mushroom-pie", //swiftlint:disable:this line_length
+                                        ingredients: [Ingredient(name: "Tomato", quantity: 3, measure: "kilograms"),
+                                                      Ingredient(name: "Mushroom", quantity: 2, measure: "")],
+                                        mark: 4, cookingTime: 5),
+                                 Recipe(name: "Slow-Cooker Red Curry Soup With Chicken and Kale Recipe",
+                                        image: "https://www.edamam.com/web-img/1e9/1e920f1d762a3e0b53842f754ad041f0.jpg", //swiftlint:disable:this line_length
+                                        recipe: "http://www.seriouseats.com/recipes/2014/02/slow-cooker-penang-curry-soup-with-chicken-and-kale.html", //swiftlint:disable:this line_length
+                                    ingredients: [Ingredient(name: "Tomato", quantity: 3, measure: "Units")],
+                                    mark: 6, cookingTime: 2)]
+        }
     }
-    */
 
 }
 

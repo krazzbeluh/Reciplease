@@ -18,6 +18,8 @@
 		94B684C2232FD3FD00F09A56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B684C0232FD3FD00F09A56 /* LaunchScreen.storyboard */; };
 		94B684D82330F2BB00F09A56 /* PreSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B684D72330F2BB00F09A56 /* PreSearchViewController.swift */; };
 		94B684DA2330FE1E00F09A56 /* IngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B684D92330FE1E00F09A56 /* IngredientTableViewCell.swift */; };
+		94BA535B233264D100CE5622 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA535A233264D100CE5622 /* Recipe.swift */; };
+		94BA535D2332657C00CE5622 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA535C2332657C00CE5622 /* Ingredient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		94B684CE232FD3FD00F09A56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94B684D72330F2BB00F09A56 /* PreSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreSearchViewController.swift; sourceTree = "<group>"; };
 		94B684D92330FE1E00F09A56 /* IngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTableViewCell.swift; sourceTree = "<group>"; };
+		94BA535A233264D100CE5622 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		94BA535C2332657C00CE5622 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +73,8 @@
 		94383E54233109A10022473D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				94BA535A233264D100CE5622 /* Recipe.swift */,
+				94BA535C2332657C00CE5622 /* Ingredient.swift */,
 				94383E58233109E20022473D /* CoreData */,
 			);
 			name = Model;
@@ -276,11 +282,13 @@
 			files = (
 				94B684DA2330FE1E00F09A56 /* IngredientTableViewCell.swift in Sources */,
 				94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */,
+				94BA535D2332657C00CE5622 /* Ingredient.swift in Sources */,
 				94383E6123313BB10022473D /* RecipeViewController.swift in Sources */,
 				94383E5C233134FD0022473D /* RecipeListViewController.swift in Sources */,
 				94B684D82330F2BB00F09A56 /* PreSearchViewController.swift in Sources */,
 				94B684BD232FD3FB00F09A56 /* Reciplease.xcdatamodeld in Sources */,
 				94B684B5232FD3FB00F09A56 /* AppDelegate.swift in Sources */,
+				94BA535B233264D100CE5622 /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
