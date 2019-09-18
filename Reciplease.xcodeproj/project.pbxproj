@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943153692332959B0034F306 /* TestIngredientListForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943153682332959B0034F306 /* TestIngredientListForSearch.swift */; };
 		94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E59233133B00022473D /* RecipeTableViewCell.swift */; };
 		94383E5C233134FD0022473D /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E5B233134FD0022473D /* RecipeListViewController.swift */; };
 		94383E5F233135670022473D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 94383E5E233135670022473D /* .swiftlint.yml */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		943153682332959B0034F306 /* TestIngredientListForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIngredientListForSearch.swift; sourceTree = "<group>"; };
+		9431536A233295E00034F306 /* RecipleaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipleaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		94383E59233133B00022473D /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		94383E5B233134FD0022473D /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
 		94383E5E233135670022473D /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 		94B684CB232FD3FD00F09A56 /* RecipleaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				9431536A233295E00034F306 /* RecipleaseTests-Bridging-Header.h */,
+				943153682332959B0034F306 /* TestIngredientListForSearch.swift */,
 				94B684CE232FD3FD00F09A56 /* Info.plist */,
 			);
 			path = RecipleaseTests;
@@ -301,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943153692332959B0034F306 /* TestIngredientListForSearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
