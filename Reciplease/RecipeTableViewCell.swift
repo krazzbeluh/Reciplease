@@ -23,8 +23,13 @@ class RecipeTableViewCell: UITableViewCell {
         self.cookingTime.text = String(recipe.cookingTime) + "m "
         
         var ingredientsList = ""
+        var index = 0
         for ingredient in recipe.ingredients {
-            ingredientsList += ingredient.name + ", "
+            if index != 0 {
+                ingredientsList += ", "
+            }
+            ingredientsList += ingredient.name
+            index += 1
         }
         
         self.ingredientsList.text = ingredientsList
