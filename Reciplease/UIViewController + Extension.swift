@@ -18,7 +18,9 @@ extension UIViewController: DisplayAlert {
         let message: String
         switch type {
         case Errors.nilInTextField:
-            message = "Veuillez entrer un ingrédient"
+            message = "Please type something"
+        case Errors.ingredientAlreadyInList:
+            message = "This ingredient is already in list"
         default:
             message = "Erreur: Inconnue (\(type))"
         }

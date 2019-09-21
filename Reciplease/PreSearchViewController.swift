@@ -51,6 +51,13 @@ class PreSearchViewController: UIViewController {
             return
         }
         
+        for ingredientInList in IngredientListForSearch.ingredients {
+            guard ingredient != ingredientInList else {
+                showAlert(with: Errors.ingredientAlreadyInList)
+                return
+            }
+        }
+        
         IngredientListForSearch.addIngredient(ingredient)
         
         tableView.reloadData()
