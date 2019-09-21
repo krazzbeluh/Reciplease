@@ -85,6 +85,9 @@
                                                 <state key="normal" title="Add">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapAddButton:" destination="aLQ-dR-0u9" eventType="touchUpInside" id="Vjw-Ru-nKd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -201,6 +204,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="XC6-7X-Ibm"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="ingredientTextField" destination="Jo5-br-Kgi" id="vAO-Zg-8Tk"/>
                         <outlet property="tableView" destination="1EF-Z7-Jjr" id="7Id-ZC-wPn"/>
                     </connections>
                 </viewController>

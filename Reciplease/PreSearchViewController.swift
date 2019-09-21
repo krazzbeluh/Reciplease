@@ -10,6 +10,7 @@ import UIKit
 
 class PreSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var ingredientTextField: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,6 +39,26 @@ class PreSearchViewController: UIViewController {
                                     mark: 6, cookingTime: 2)]
         }
     }
+    
+    private func addIngredient() {
+        guard let ingredient = ingredientTextField.text else {
+            showAlert(with: Errors.nilInTextField)
+            return
+        }
+        
+        guard ingredient != "" else {
+            showAlert(with: Errors.nilInTextField)
+            return
+        }
+        
+        IngredientListForSearch.addIngredient(ingredient)
+        
+        tableView.reloadData()
+    }
+    
+    @IBAction func didTapAddButton(_ sender: Any) {
+        addIngredient()
+    }
 
 }
 
@@ -47,7 +68,7 @@ extension PreSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return IngredientListForSearch.ingredients.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,7 +77,7 @@ extension PreSearchViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let ingredient = "Tomatoes"
+        let ingredient = IngredientListForSearch.ingredients[indexPath.row]
         
         cell.configure(name: ingredient)
         

@@ -22,6 +22,8 @@
 		94BA535B233264D100CE5622 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA535A233264D100CE5622 /* Recipe.swift */; };
 		94BA535D2332657C00CE5622 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA535C2332657C00CE5622 /* Ingredient.swift */; };
 		94BA535F233292D300CE5622 /* IngredientListForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA535E233292D300CE5622 /* IngredientListForSearch.swift */; };
+		94DAAD22233613B600AEF5CD /* RecipleaseErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DAAD21233613B600AEF5CD /* RecipleaseErrors.swift */; };
+		94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DAAD232336149F00AEF5CD /* UIViewController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		94BA535A233264D100CE5622 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		94BA535C2332657C00CE5622 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		94BA535E233292D300CE5622 /* IngredientListForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListForSearch.swift; sourceTree = "<group>"; };
+		94DAAD21233613B600AEF5CD /* RecipleaseErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseErrors.swift; sourceTree = "<group>"; };
+		94DAAD232336149F00AEF5CD /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,7 @@
 			children = (
 				94BA535E233292D300CE5622 /* IngredientListForSearch.swift */,
 				94BA535A233264D100CE5622 /* Recipe.swift */,
+				94DAAD21233613B600AEF5CD /* RecipleaseErrors.swift */,
 				94BA535C2332657C00CE5622 /* Ingredient.swift */,
 				94383E58233109E20022473D /* CoreData */,
 			);
@@ -102,6 +107,7 @@
 				94383E6023313BB10022473D /* RecipeViewController.swift */,
 				94383E5B233134FD0022473D /* RecipeListViewController.swift */,
 				94B684D72330F2BB00F09A56 /* PreSearchViewController.swift */,
+				94DAAD232336149F00AEF5CD /* UIViewController + Extension.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -299,6 +305,8 @@
 				94B684BD232FD3FB00F09A56 /* Reciplease.xcdatamodeld in Sources */,
 				94B684B5232FD3FB00F09A56 /* AppDelegate.swift in Sources */,
 				94BA535B233264D100CE5622 /* Recipe.swift in Sources */,
+				94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */,
+				94DAAD22233613B600AEF5CD /* RecipleaseErrors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
