@@ -59,7 +59,16 @@ class PreSearchViewController: UIViewController {
     @IBAction func didTapAddButton(_ sender: Any) {
         addIngredient()
     }
-
+    
+    private func clearList() {
+        IngredientListForSearch.ingredients = []
+        tableView.reloadData()
+    }
+    
+    @IBAction func didTapClearButton(_ sender: Any) {
+        clearList()
+    }
+    
 }
 
 extension PreSearchViewController: UITableViewDataSource {

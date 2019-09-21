@@ -9,6 +9,7 @@
 import Foundation
 
 class IngredientListForSearch {
+    private init() {}
     static var ingredients: [String] = []
     
     static func addIngredient(_ ingredient: String) {

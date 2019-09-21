@@ -119,6 +119,9 @@
                                 <state key="normal" title="Clear">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapClearButton:" destination="aLQ-dR-0u9" eventType="touchUpInside" id="Phx-yP-b6E"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKI-Bq-5rJ">
                                 <rect key="frame" x="20" y="649" width="374" height="60"/>
