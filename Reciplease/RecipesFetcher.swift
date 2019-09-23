@@ -67,6 +67,8 @@ class RecipesFetcher {
                                       mark: hit.recipe.yield))
             }
             
+            completion(.success(recipes))
+            
         }
     }
 }

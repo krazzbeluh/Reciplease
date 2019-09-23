@@ -11,12 +11,7 @@ import UIKit
 class RecipeListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var recipes: [Recipe] = [Recipe(name: "Rien",
-                                    image: "https://www.edamam.com/web-img/9fd/9fd0a2fa6bc6f6b8199d17ce0385cb47.jpg",
-                                    recipe: "http://www.marthastewart.com/356426/double-crust-chicken-and-mushroom-pie",
-                                    ingredients: [Ingredient(name: "Tomato", quantity: 3, measure: "kilograms"),
-                                                  Ingredient(name: "Mushroom", quantity: 4, measure: "grams")],
-                                    mark: 2)]
+    var recipes: [Recipe]!
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()

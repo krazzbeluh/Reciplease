@@ -41,13 +41,14 @@ class PreSearchViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRequestList" {
-            let successVC = segue.destination as! RecipeListViewController
             
             fetchData { result in
                 switch result {
                 case .failure(let error):
                     self.showAlert(with: error)
                 case .success(let recipes):
+                    print(recipes)
+                    let successVC = segue.destination as! RecipeListViewController
                     successVC.recipes = recipes
                 }
             }
