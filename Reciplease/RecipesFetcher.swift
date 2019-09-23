@@ -40,6 +40,33 @@ class RecipesFetcher {
         
         AF.request(url).response { response in
             debugPrint(response)
+            guard let data = response.data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            guard let recipesData = try? JSONDecoder().decode(Welcome.self, from: data) else {
+                completion(.failure(.unableToDecodeData))
+                return
+            }
+            
+            var recipes = [Recipe]()
+            for hit in recipesData.hits {
+                
+                var ingredients = [Ingredient]()
+                for ingredient in hit.recipe.ingredients {
+                    ingredients.append(Ingredient(name: ingredient.food,
+                                                  quantity: ingredient.quantity,
+                                                  measure: ingredient.measure ?? ""))
+                }
+                
+                recipes.append(Recipe(name: hit.recipe.label,
+                                      image: hit.recipe.image,
+                                      recipe: hit.recipe.url,
+                                      ingredients: ingredients,
+                                      mark: hit.recipe.yield))
+            }
+            
         }
     }
 }

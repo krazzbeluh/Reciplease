@@ -16,7 +16,7 @@ class RecipeListViewController: UIViewController {
                                     recipe: "http://www.marthastewart.com/356426/double-crust-chicken-and-mushroom-pie",
                                     ingredients: [Ingredient(name: "Tomato", quantity: 3, measure: "kilograms"),
                                                   Ingredient(name: "Mushroom", quantity: 4, measure: "grams")],
-                                    mark: 2, cookingTime: 3)]
+                                    mark: 2)]
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
