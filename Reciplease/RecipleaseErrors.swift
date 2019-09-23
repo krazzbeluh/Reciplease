@@ -8,6 +8,6 @@
 
 import Foundation
 
-    enum Errors: Error {
-        case nilInTextField, ingredientAlreadyInList
-    }
+enum Errors: Error {
+    case nilInTextField, ingredientAlreadyInList
+}

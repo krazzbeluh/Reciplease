@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol PreSearchDelegate: DisplayAlert {
+    func clearTextField()
+}
+
 class PreSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ingredientTextField: UITextField!
@@ -20,6 +24,7 @@ class PreSearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        PreSearchViewModel.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -41,24 +46,7 @@ class PreSearchViewController: UIViewController {
     }
     
     private func addIngredient() {
-        guard let ingredient = ingredientTextField.text else {
-            showAlert(with: Errors.nilInTextField)
-            return
-        }
-        
-        guard ingredient != "" else {
-            showAlert(with: Errors.nilInTextField)
-            return
-        }
-        
-        for ingredientInList in IngredientListForSearch.ingredients {
-            guard ingredient != ingredientInList else {
-                showAlert(with: Errors.ingredientAlreadyInList)
-                return
-            }
-        }
-        
-        IngredientListForSearch.addIngredient(ingredient)
+        PreSearchViewModel.addIngredient(ingredientTextField.text)
         
         tableView.reloadData()
     }
@@ -104,4 +92,20 @@ extension PreSearchViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension PreSearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if ingredientTextField.text != nil && ingredientTextField.text != "" {
+            addIngredient()
+        }
+        ingredientTextField.resignFirstResponder()
+        return true
+    }
+}
+
+extension PreSearchViewController: PreSearchDelegate {
+    func clearTextField() {
+        ingredientTextField.text = ""
+    }
 }
