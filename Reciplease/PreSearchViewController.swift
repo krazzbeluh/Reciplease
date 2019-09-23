@@ -29,6 +29,10 @@ class PreSearchViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        RecipesFetcher().fetchRecipes() { data in //swiftlint:disable:this unused_closure_parameter empty_parentheses_with_trailing_closure line_length
+            
+        }
+        
         if segue.identifier == "segueToRequestList" {
             let successVC = segue.destination as! RecipeListViewController
             successVC.recipes = [Recipe(name: "Double-Crust Chicken and Mushroom Pie",

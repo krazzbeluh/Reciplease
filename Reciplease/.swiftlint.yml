@@ -5,9 +5,7 @@ disabled_rules:
 - force_try
 - empty_enum_arguments
 - class_delegate_protocol
-identifier_name:
-min_length: # only min_length
-error: 3 # only error
+- identifier_name
 excluded: # excluded via string array
 - i
 - j

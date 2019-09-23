@@ -10,4 +10,6 @@ import Foundation
 
 enum Errors: Error {
     case nilInTextField, ingredientAlreadyInList
+//    Networking Errors
+    case noData, error, responseNot200, incorectUrl
 }

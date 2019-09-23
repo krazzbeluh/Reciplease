@@ -1,0 +1,6 @@
+module Pods_Reciplease {
+  umbrella header "Pods-Reciplease-umbrella.h"
+
+  export *
+  module * { export * }
+}

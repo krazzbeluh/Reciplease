@@ -20,5 +20,4 @@ class TestIngredientListForSearch: XCTestCase {
         
         XCTAssertEqual(IngredientListForSearch.ingredients, [ingredient])
     }
-
 }
