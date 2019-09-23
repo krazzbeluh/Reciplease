@@ -15,6 +15,8 @@ protocol PreSearchDelegate: DisplayAlert {
 class PreSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ingredientTextField: UITextField!
+    @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     private var recipes: [Recipe]?
     
@@ -41,6 +43,11 @@ class PreSearchViewController: UIViewController {
         }
     }
     
+    func switchActivityIndicator(shown: Bool) {
+        activityIndicator.isHidden = !shown
+        searchButton.isHidden = shown
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRequestList" {
             let successVC = segue.destination as! RecipeListViewController
@@ -53,6 +60,7 @@ class PreSearchViewController: UIViewController {
     }
     
     func searchRecipesAndPerformSegue() {
+        switchActivityIndicator(shown: true)
         fetchData { result in
             switch result {
             case .failure(let error):
@@ -62,6 +70,7 @@ class PreSearchViewController: UIViewController {
                 self.recipes = recipes
                 self.performSegue(withIdentifier: "segueToRequestList", sender: self)
             }
+            self.switchActivityIndicator(shown: false)
         }
     }
     

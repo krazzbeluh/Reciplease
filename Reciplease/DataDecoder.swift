@@ -31,7 +31,7 @@ struct RecipeDecoder: Decodable {
     let source: String
     let url: String
     let shareAs: String
-    let yield: Float
+    let yield: Int
     let dietLabels, healthLabels, cautions, ingredientLines: [String]
     let ingredients: [IngredientDecoder]
     let calories, totalWeight: Double

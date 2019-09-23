@@ -181,12 +181,21 @@
                                     <outlet property="dataSource" destination="aLQ-dR-0u9" id="Tan-eQ-qfx"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aoy-Dv-QlK">
+                                <rect key="frame" x="177" y="649" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aoy-Dv-QlK" secondAttribute="height" multiplier="1:1" id="dIs-eb-L1s"/>
+                                </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" name="Background"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fKI-Bq-5rJ" firstAttribute="centerX" secondItem="dGk-Fj-z7J" secondAttribute="centerX" id="01x-mA-hAi"/>
+                            <constraint firstItem="aoy-Dv-QlK" firstAttribute="height" secondItem="fKI-Bq-5rJ" secondAttribute="height" id="4xY-4U-gkL"/>
                             <constraint firstItem="Ceo-5X-1Ec" firstAttribute="trailing" secondItem="Iyg-Lf-nmv" secondAttribute="trailing" id="55x-Mv-Po8"/>
+                            <constraint firstItem="aoy-Dv-QlK" firstAttribute="centerY" secondItem="fKI-Bq-5rJ" secondAttribute="centerY" id="ECf-RD-IUQ"/>
                             <constraint firstItem="Ceo-5X-1Ec" firstAttribute="trailing" secondItem="lWq-BG-qlx" secondAttribute="trailing" constant="20" id="NVt-bq-g1D"/>
                             <constraint firstItem="Iyg-Lf-nmv" firstAttribute="top" secondItem="Ceo-5X-1Ec" secondAttribute="top" id="RyZ-b0-i8l"/>
                             <constraint firstItem="1EF-Z7-Jjr" firstAttribute="top" secondItem="lXw-5y-YMJ" secondAttribute="bottom" constant="30" id="TNE-NG-8EF"/>
@@ -196,6 +205,7 @@
                             <constraint firstItem="lXw-5y-YMJ" firstAttribute="leading" secondItem="Ceo-5X-1Ec" secondAttribute="leading" constant="20" id="d90-Dn-18r"/>
                             <constraint firstItem="Ceo-5X-1Ec" firstAttribute="trailing" secondItem="1EF-Z7-Jjr" secondAttribute="trailing" constant="20" id="dlp-0v-hR7"/>
                             <constraint firstItem="lWq-BG-qlx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lXw-5y-YMJ" secondAttribute="trailing" constant="20" id="doO-wa-7UU"/>
+                            <constraint firstItem="aoy-Dv-QlK" firstAttribute="centerX" secondItem="fKI-Bq-5rJ" secondAttribute="centerX" id="hQt-SZ-vnu"/>
                             <constraint firstItem="fKI-Bq-5rJ" firstAttribute="leading" secondItem="Ceo-5X-1Ec" secondAttribute="leading" constant="20" id="iGD-mZ-e0A"/>
                             <constraint firstItem="1EF-Z7-Jjr" firstAttribute="leading" secondItem="Ceo-5X-1Ec" secondAttribute="leading" constant="20" id="r9c-iN-A0z"/>
                             <constraint firstItem="lXw-5y-YMJ" firstAttribute="top" secondItem="Iyg-Lf-nmv" secondAttribute="bottom" constant="16" id="r9d-mf-Kox"/>
@@ -211,7 +221,9 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="XC6-7X-Ibm"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="aoy-Dv-QlK" id="nBA-gq-FOh"/>
                         <outlet property="ingredientTextField" destination="Jo5-br-Kgi" id="vAO-Zg-8Tk"/>
+                        <outlet property="searchButton" destination="fKI-Bq-5rJ" id="mR1-VX-8ed"/>
                         <outlet property="tableView" destination="1EF-Z7-Jjr" id="7Id-ZC-wPn"/>
                         <segue destination="Bxc-Jr-BOX" kind="show" identifier="segueToRequestList" id="Ygn-bT-Mw8"/>
                     </connections>
@@ -257,7 +269,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rL9-9y-Xbn">
                                                     <rect key="frame" x="344" y="10" width="60" height="20"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,5k" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ody-7r-DMF">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ody-7r-DMF">
                                                             <rect key="frame" x="0.0" y="0.0" width="39" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -397,20 +409,20 @@
                                         <color key="backgroundColor" name="Background"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" id="94J-NP-P74" customClass="IngredientTableViewCell" customModule="Reciplease" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="398" height="43.333332061767578"/>
+                                                <rect key="frame" x="0.0" y="28" width="398" height="43.666667938232422"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="94J-NP-P74" id="vmp-WU-wSC">
-                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="43.333332061767578"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="398" height="43.666667938232422"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="-" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTE-8i-12I">
-                                                            <rect key="frame" x="10" y="0.0" width="12" height="43.333333333333336"/>
+                                                            <rect key="frame" x="10" y="0.0" width="12" height="43.666666666666664"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredient" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6K-ju-JNV">
-                                                            <rect key="frame" x="32" y="10.999999999999998" width="346" height="21.333333333333329"/>
+                                                            <rect key="frame" x="32" y="11.000000000000002" width="346" height="21.666666666666671"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>

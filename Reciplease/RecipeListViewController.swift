@@ -52,7 +52,17 @@ extension RecipeListViewController: UITableViewDataSource {
                                                         return UITableViewCell()
         }
         
-        cell.configure(recipeId: indexPath.row, recipe: recipes[indexPath.row])
+        ImageFetcher(url: recipes[indexPath.row].imageUrl).fetchImage { result in
+            switch result {
+            case .failure(let error):
+                print(error)
+                cell.configure(recipeId: indexPath.row, recipe: self.recipes[indexPath.row], image: #imageLiteral(resourceName: "DefaultImageCatalog"))
+            case .success(let data):
+                cell.configure(recipeId: indexPath.row,
+                               recipe: self.recipes[indexPath.row],
+                               image: UIImage(data: data) ?? #imageLiteral(resourceName: "DefaultImageCatalog"))
+            }
+        }
         
         return cell
     }

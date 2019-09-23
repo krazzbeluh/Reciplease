@@ -39,7 +39,6 @@ class RecipesFetcher {
         }
         
         AF.request(url).response { response in
-            debugPrint(response)
             guard let data = response.data else {
                 completion(.failure(.noData))
                 return

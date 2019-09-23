@@ -14,9 +14,9 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var dishButton: UIButton!
     @IBOutlet weak var mark: UILabel!
     
-    func configure(recipeId: Int, recipe: Recipe) {
+    func configure(recipeId: Int, recipe: Recipe, image: UIImage) {
         nameLabel.text = recipe.name
-        dishButton.setImage(#imageLiteral(resourceName: "DefaultImageCatalog"), for: .normal)
+        dishButton.setImage(image, for: .normal)
         dishButton.titleLabel?.text = String(recipeId)
         self.mark.text = String(recipe.mark)
         
