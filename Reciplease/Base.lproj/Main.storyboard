@@ -134,7 +134,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Bxc-Jr-BOX" kind="show" identifier="segueToRequestList" id="JJw-ro-7g1"/>
+                                    <action selector="didTapSearchButton:" destination="aLQ-dR-0u9" eventType="touchUpInside" id="kBC-21-Jy5"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1EF-Z7-Jjr">
@@ -213,6 +213,7 @@
                     <connections>
                         <outlet property="ingredientTextField" destination="Jo5-br-Kgi" id="vAO-Zg-8Tk"/>
                         <outlet property="tableView" destination="1EF-Z7-Jjr" id="7Id-ZC-wPn"/>
+                        <segue destination="Bxc-Jr-BOX" kind="show" identifier="segueToRequestList" id="Ygn-bT-Mw8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zL9-t5-qtW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -466,6 +467,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="QH3-AK-qf0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="hHr-Ig-bRW"/>
                     <connections>
                         <outlet property="tableView" destination="Ju6-8j-y3V" id="3Oh-Gf-dnb"/>
                         <outlet property="titleLabel" destination="NM4-TF-8vL" id="0kR-4n-mOo"/>
@@ -509,6 +511,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JJw-ro-7g1"/>
+        <segue reference="Ygn-bT-Mw8"/>
     </inferredMetricsTieBreakers>
 </document>

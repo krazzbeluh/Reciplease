@@ -16,6 +16,8 @@ class PreSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var ingredientTextField: UITextField!
     
+    private var recipes: [Recipe]?
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
@@ -41,16 +43,24 @@ class PreSearchViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRequestList" {
-            
-            fetchData { result in
-                switch result {
-                case .failure(let error):
-                    self.showAlert(with: error)
-                case .success(let recipes):
-                    print(recipes)
-                    let successVC = segue.destination as! RecipeListViewController
-                    successVC.recipes = recipes
-                }
+            let successVC = segue.destination as! RecipeListViewController
+            successVC.recipes = recipes
+        }
+    }
+    
+    @IBAction func didTapSearchButton(_ sender: Any) {
+        searchRecipesAndPerformSegue()
+    }
+    
+    func searchRecipesAndPerformSegue() {
+        fetchData { result in
+            switch result {
+            case .failure(let error):
+                self.showAlert(with: error)
+            case .success(let recipes):
+                print(recipes)
+                self.recipes = recipes
+                self.performSegue(withIdentifier: "segueToRequestList", sender: self)
             }
         }
     }
