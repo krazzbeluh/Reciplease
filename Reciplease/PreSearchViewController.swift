@@ -76,6 +76,10 @@ class PreSearchViewController: UIViewController {
         clearList()
     }
     
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        ingredientTextField.resignFirstResponder()
+    }
+    
 }
 
 extension PreSearchViewController: UITableViewDataSource {
