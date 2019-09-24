@@ -24,7 +24,7 @@ extension UIViewController: DisplayAlert {
         case .networkError:
             message = "Invalid network connexion"
         case .incorectUrl:
-            message = "Unable to fetch data"
+            message = "Invalid URL"
         case .noData:
             message = "Unable to fetch data"
         case .responseNot200:
