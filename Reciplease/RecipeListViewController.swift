@@ -58,6 +58,7 @@ extension RecipeListViewController: UITableViewDataSource {
                 self.showAlert(with: error)
                 cell.configure(recipeId: indexPath.row, recipe: self.recipes[indexPath.row], image: #imageLiteral(resourceName: "DefaultImageCatalog"))
             case .success(let data):
+                self.recipes[indexPath.row].image = data
                 cell.configure(recipeId: indexPath.row,
                                recipe: self.recipes[indexPath.row],
                                image: UIImage(data: data) ?? #imageLiteral(resourceName: "DefaultImageCatalog"))
