@@ -17,13 +17,13 @@ extension UIViewController: DisplayAlert {
     func showAlert(with type: Errors) {
         let message: String
         switch type {
-        case Errors.nilInTextField:
+        case .nilInTextField:
             message = "Please type something"
-        case Errors.ingredientAlreadyInList:
+        case .ingredientAlreadyInList:
             message = "This ingredient is already in list"
-        case Errors.networkError:
+        case .networkError:
             message = "Invalid network connexion"
-        case Errors.incorectUrl:
+        case .incorectUrl:
             message = "Unable to fetch data"
         case .noData:
             message = "Unable to fetch data"

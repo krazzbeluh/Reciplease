@@ -55,7 +55,7 @@ extension RecipeListViewController: UITableViewDataSource {
         ImageFetcher(url: recipes[indexPath.row].imageUrl).fetchImage { result in
             switch result {
             case .failure(let error):
-                print(error)
+                self.showAlert(with: error)
                 cell.configure(recipeId: indexPath.row, recipe: self.recipes[indexPath.row], image: #imageLiteral(resourceName: "DefaultImageCatalog"))
             case .success(let data):
                 cell.configure(recipeId: indexPath.row,

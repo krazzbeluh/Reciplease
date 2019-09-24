@@ -66,7 +66,6 @@ class PreSearchViewController: UIViewController {
             case .failure(let error):
                 self.showAlert(with: error)
             case .success(let recipes):
-                print(recipes)
                 self.recipes = recipes
                 self.performSegue(withIdentifier: "segueToRequestList", sender: self)
             }
