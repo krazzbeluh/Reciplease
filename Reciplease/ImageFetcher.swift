@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class ImageFetcher {
+class ImageFetcher: NetworkSession {
     var url: String
     
     init(url: String) {
@@ -18,18 +18,13 @@ class ImageFetcher {
     
 //    Main func
     func fetchImage(completion: @escaping (Result<Data, Errors>) -> Void) {
-        guard let url = URL(string: self.url) else {
-            completion(.failure(.incorectUrl))
-          return
-        }
-        
-        AF.request(url).response { response in
-            guard let data = response.data else {
-                completion(.failure(.noData))
-                return
+        request(url: url) { result in
+            switch result {
+            case .success(let data):
+                completion(.success(data))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
-            completion(.success(data))
         }
     }
 }

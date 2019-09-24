@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		94115D9B233968D00004F16D /* fakeResponseData.json in Resources */ = {isa = PBXBuildFile; fileRef = 94115D9A233968D00004F16D /* fakeResponseData.json */; };
+		94115D9E233A1C1B0004F16D /* NetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94115D9D233A1C1B0004F16D /* NetworkSession.swift */; };
 		943153692332959B0034F306 /* TestIngredientListForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943153682332959B0034F306 /* TestIngredientListForSearch.swift */; };
 		94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E59233133B00022473D /* RecipeTableViewCell.swift */; };
 		94383E5C233134FD0022473D /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E5B233134FD0022473D /* RecipeListViewController.swift */; };
@@ -46,6 +47,7 @@
 		234D8BF0BA74581739010911 /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		6C3C239209978B69846F85DB /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
 		94115D9A233968D00004F16D /* fakeResponseData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = fakeResponseData.json; sourceTree = "<group>"; };
+		94115D9D233A1C1B0004F16D /* NetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkSession.swift; sourceTree = "<group>"; };
 		943153682332959B0034F306 /* TestIngredientListForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIngredientListForSearch.swift; sourceTree = "<group>"; };
 		9431536A233295E00034F306 /* RecipleaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipleaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		94383E59233133B00022473D /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 		94AAB0B42338F2A3008CA9B3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				94115D9D233A1C1B0004F16D /* NetworkSession.swift */,
 				94AAB0B52338F2C8008CA9B3 /* RecipesFetcher.swift */,
 				94AAB0BE233937E4008CA9B3 /* ImageFetcher.swift */,
 			);
@@ -403,6 +406,7 @@
 				94AAB0B32338E406008CA9B3 /* PreSearchListViewModel.swift in Sources */,
 				94AAB0B62338F2C8008CA9B3 /* RecipesFetcher.swift in Sources */,
 				94B684B5232FD3FB00F09A56 /* AppDelegate.swift in Sources */,
+				94115D9E233A1C1B0004F16D /* NetworkSession.swift in Sources */,
 				94BA535B233264D100CE5622 /* Recipe.swift in Sources */,
 				94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */,
 				94DAAD22233613B600AEF5CD /* RecipleaseErrors.swift in Sources */,

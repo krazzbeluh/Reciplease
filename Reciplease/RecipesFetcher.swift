@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class RecipesFetcher {
+class RecipesFetcher: NetworkSession {
     private var url: String {
         var ingredientsString = ""
         
@@ -33,41 +33,35 @@ class RecipesFetcher {
     
 //    Main func
     func fetchRecipes(completion: @escaping (Result<[Recipe], Errors>) -> Void) {
-        guard let url = URL(string: self.url) else {
-            completion(.failure(.incorectUrl))
-          return
-        }
-        
-        AF.request(url).response { response in
-            guard let data = response.data else {
-                completion(.failure(.noData))
-                return
-            }
-            
-            guard let recipesData = try? JSONDecoder().decode(Welcome.self, from: data) else {
-                completion(.failure(.unableToDecodeData))
-                return
-            }
-            
-            var recipes = [Recipe]()
-            for hit in recipesData.hits {
-                
-                var ingredients = [Ingredient]()
-                for ingredient in hit.recipe.ingredients {
-                    ingredients.append(Ingredient(name: ingredient.food,
-                                                  quantity: ingredient.quantity,
-                                                  measure: ingredient.measure ?? ""))
+        request(url: url) { result in
+            switch result {
+            case .success(let data):
+                guard let recipesData = try? JSONDecoder().decode(Welcome.self, from: data) else {
+                    completion(.failure(.unableToDecodeData))
+                    return
                 }
                 
-                recipes.append(Recipe(name: hit.recipe.label,
-                                      image: hit.recipe.image,
-                                      recipe: hit.recipe.url,
-                                      ingredients: ingredients,
-                                      mark: hit.recipe.yield))
+                var recipes = [Recipe]()
+                for hit in recipesData.hits {
+                    
+                    var ingredients = [Ingredient]()
+                    for ingredient in hit.recipe.ingredients {
+                        ingredients.append(Ingredient(name: ingredient.food,
+                                                      quantity: ingredient.quantity,
+                                                      measure: ingredient.measure ?? ""))
+                    }
+                    
+                    recipes.append(Recipe(name: hit.recipe.label,
+                                          image: hit.recipe.image,
+                                          recipe: hit.recipe.url,
+                                          ingredients: ingredients,
+                                          mark: hit.recipe.yield))
+                }
+                
+                completion(.success(recipes))
+            case .failure(let error):
+                completion(.failure(error))
             }
-            
-            completion(.success(recipes))
-            
         }
     }
 }
