@@ -11,12 +11,19 @@ import UIKit
 class RecipeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var image: UIImageView!
     
     var recipe: Recipe!
     
     override func viewWillAppear(_ animated: Bool) {
         titleLabel.text = recipe.name
         tableView.reloadData()
+        
+        if let imageData = recipe.image {
+            image.image = UIImage(data: imageData)
+        } else {
+            image.image = #imageLiteral(resourceName: "DefaultImageCatalog")
+        }
     }
 
 }

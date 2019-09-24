@@ -22,7 +22,7 @@ class RecipesFetcher {
             firstLoopTurn = false
         }
         
-        let returnUrl = "https://api.edamam.com/search?app_id=API signup&app_key=" + key + "&q=" + ingredientsString
+        let returnUrl = "https://api.edamam.com/search?app_id=API signup&app_key=" + key + "&q=" + ingredientsString + "&from=0&to=20" //swiftlint:disable:this line_length
         return returnUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
     }
     

@@ -14,9 +14,18 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var dishButton: UIButton!
     @IBOutlet weak var mark: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        dishButton.contentHorizontalAlignment = .fill
+        dishButton.contentVerticalAlignment = .fill
+        dishButton.imageView?.contentMode = .scaleAspectFill
+    }
+    
     func configure(recipeId: Int, recipe: Recipe, image: UIImage) {
         nameLabel.text = recipe.name
+        
         dishButton.setImage(image, for: .normal)
+        
         dishButton.titleLabel?.text = String(recipeId)
         self.mark.text = String(recipe.mark)
         

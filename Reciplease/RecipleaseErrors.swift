@@ -11,7 +11,7 @@ import Foundation
 enum Errors: Error {
     case nilInTextField, ingredientAlreadyInList
 //    Networking Errors
-    case noData, error, responseNot200, incorectUrl
+    case noData, networkError, responseNot200, incorectUrl
 //    Data errors
     case unableToDecodeData
 }
