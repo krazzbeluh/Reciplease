@@ -7,9 +7,15 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
-class ImageFetcher: NetworkSession {
+class ImageFetcher {
+    required init(session: NetworkSession) {
+        networkSession = session
+        url = "https://google.fr"
+    }
+    
+    private var networkSession = NetworkSession()
     var url: String
     
     init(url: String) {
@@ -18,7 +24,7 @@ class ImageFetcher: NetworkSession {
     
 //    Main func
     func fetchImage(completion: @escaping (Result<Data, Errors>) -> Void) {
-        request(url: url) { result in
+        networkSession.request(url: url) { result in
             switch result {
             case .success(let data):
                 completion(.success(data))

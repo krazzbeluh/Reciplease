@@ -10,27 +10,27 @@ import Foundation
 import UIKit
 
 protocol DisplayAlert: UIViewController {
-    func showAlert(with type: Errors)
+    func showAlert(with type: Error)
 }
 
 extension UIViewController: DisplayAlert {
-    func showAlert(with type: Errors) {
+    func showAlert(with error: Error) {
         let message: String
-        switch type {
-        case .nilInTextField:
+        switch error {
+        case Errors.nilInTextField:
             message = "Please type something"
-        case .ingredientAlreadyInList:
+        case Errors.ingredientAlreadyInList:
             message = "This ingredient is already in list"
-        case .networkError:
-            message = "Invalid network connexion"
-        case .incorectUrl:
+        case Errors.incorectUrl:
             message = "Invalid URL"
-        case .noData:
+        case Errors.noData:
             message = "Unable to fetch data"
-        case .responseNot200:
+        case Errors.responseNot200:
             message = "API response error"
-        case .unableToDecodeData:
+        case Errors.unableToDecodeData:
             message = "Unable to decode data"
+        default:
+            message = "Erreur : \(error)"
         }
         sendAlert(message: message)
     }

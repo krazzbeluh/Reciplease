@@ -11,7 +11,6 @@ import Foundation
 class Recipe {
     let name: String
     let imageUrl: String
-    var image: Data?
     let recipeUrl: String
     let ingredients: [Ingredient]
     let mark: Int

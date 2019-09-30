@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,10 +22,8 @@ class RecipeTableViewCell: UITableViewCell {
         dishButton.imageView?.contentMode = .scaleAspectFill
     }
     
-    func configure(recipeId: Int, recipe: Recipe, image: UIImage) {
+    func configure(recipeId: Int, recipe: Recipe) {
         nameLabel.text = recipe.name
-        
-        dishButton.setImage(image, for: .normal)
         
         dishButton.titleLabel?.text = String(recipeId)
         self.mark.text = String(recipe.mark)
@@ -40,6 +39,16 @@ class RecipeTableViewCell: UITableViewCell {
         }
         
         self.ingredientsList.text = ingredientsList
-    }
 
+        let url = URL(string: recipe.imageUrl)
+        dishButton.kf.setImage(with: url, for: .normal) { result in
+            switch result {
+            case .success(let imageResult):
+                print(imageResult)
+            case .failure(let error):
+                print(error)
+                self.dishButton.setImage(#imageLiteral(resourceName: "DefaultImageCatalog"), for: .normal)
+            }
+        }
+    }
 }

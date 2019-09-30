@@ -19,16 +19,21 @@ class RecipeViewController: UIViewController {
         titleLabel.text = recipe.name
         tableView.reloadData()
         
-        if let imageData = recipe.image {
-            image.image = UIImage(data: imageData)
-        } else {
-            image.image = #imageLiteral(resourceName: "DefaultImageCatalog")
+        let url = URL(string: recipe.imageUrl)
+        image.kf.setImage(with: url) { result in
+            switch result {
+            case .success(let imageResult):
+                print(imageResult)
+            case .failure(let error):
+                print(error)
+                self.image.image = #imageLiteral(resourceName: "DefaultImageCatalog")
+            }
         }
     }
 
     @IBAction func didTapRedirectionButton(_ sender: Any) {
         guard let url = URL(string: recipe.recipeUrl) else {
-            showAlert(with: .incorectUrl)
+            showAlert(with: Errors.incorectUrl)
             return
         }
         UIApplication.shared.open(url)

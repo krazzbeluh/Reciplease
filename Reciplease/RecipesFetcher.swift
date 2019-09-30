@@ -7,9 +7,15 @@
 //
 
 import Foundation
-import Alamofire
+//import Alamofire
 
-class RecipesFetcher: NetworkSession {
+class RecipesFetcher {
+    init() {}
+    required init(session: NetworkSession) {
+        networkSession = session
+    }
+    
+    private var networkSession = NetworkSession()
     private var url: String {
         var ingredientsString = ""
         
@@ -33,7 +39,7 @@ class RecipesFetcher: NetworkSession {
     
 //    Main func
     func fetchRecipes(completion: @escaping (Result<[Recipe], Errors>) -> Void) {
-        request(url: url) { result in
+        networkSession.request(url: url) { result in
             switch result {
             case .success(let data):
                 guard let recipesData = try? JSONDecoder().decode(Welcome.self, from: data) else {

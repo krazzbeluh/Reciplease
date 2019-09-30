@@ -9,24 +9,38 @@
 import Foundation
 import Alamofire
 
-protocol NetworkSession {
-    
-}
-
-extension NetworkSession {
+class NetworkSession {
     func request(url urlString: String, completion: @escaping (Result<Data, Errors>) -> Void) {
         guard let url = URL(string: urlString) else {
             completion(.failure(.incorectUrl))
-          return
+            return
         }
         
-        AF.request(url).response { response in
-            guard let data = response.data else {
-                completion(.failure(.noData))
-                return
+//        AF.request(url).response { response in
+//
+//            guard let data = response.data else {
+//                completion(.failure(.noData))
+//                return
+//            }
+//
+//            completion(.success(data))
+//        }
+        
+        AF.request(url)
+        .validate(statusCode: 200..<300)
+        .validate(contentType: ["application/json"])
+        .responseData { response in
+            switch response.result {
+            case .success:
+                guard let data = response.data else {
+                    completion(.failure(.noData))
+                    return
+                }
+                
+                completion(.success(data))
+            case let .failure(error):
+                print(error)
             }
-            
-            completion(.success(data))
         }
     }
 }
