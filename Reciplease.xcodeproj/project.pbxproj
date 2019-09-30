@@ -34,6 +34,7 @@
 		94BA535F233292D300CE5622 /* IngredientListForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BA535E233292D300CE5622 /* IngredientListForSearch.swift */; };
 		94DAAD22233613B600AEF5CD /* RecipleaseErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DAAD21233613B600AEF5CD /* RecipleaseErrors.swift */; };
 		94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DAAD232336149F00AEF5CD /* UIViewController + Extension.swift */; };
+		94E08D6823425A8C00DAB3AC /* IntroduceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E08D6723425A8C00DAB3AC /* IntroduceTableViewCell.swift */; };
 		FA7221957254662A0D0A85D6 /* libPods-Reciplease.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0BAF7D685F942762B3EABCF /* libPods-Reciplease.a */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		94BA535E233292D300CE5622 /* IngredientListForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientListForSearch.swift; sourceTree = "<group>"; };
 		94DAAD21233613B600AEF5CD /* RecipleaseErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipleaseErrors.swift; sourceTree = "<group>"; };
 		94DAAD232336149F00AEF5CD /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
+		94E08D6723425A8C00DAB3AC /* IntroduceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroduceTableViewCell.swift; sourceTree = "<group>"; };
 		A0BAF7D685F942762B3EABCF /* libPods-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E33EAA6AA6F0558BD76A534E /* libPods-RecipleaseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipleaseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -165,6 +167,7 @@
 			children = (
 				94B684B8232FD3FB00F09A56 /* Main.storyboard */,
 				94383E59233133B00022473D /* RecipeTableViewCell.swift */,
+				94E08D6723425A8C00DAB3AC /* IntroduceTableViewCell.swift */,
 				94B684D92330FE1E00F09A56 /* IngredientTableViewCell.swift */,
 			);
 			name = View;
@@ -456,6 +459,7 @@
 				94B684B5232FD3FB00F09A56 /* AppDelegate.swift in Sources */,
 				94115D9E233A1C1B0004F16D /* NetworkSession.swift in Sources */,
 				94BA535B233264D100CE5622 /* Recipe.swift in Sources */,
+				94E08D6823425A8C00DAB3AC /* IntroduceTableViewCell.swift in Sources */,
 				94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */,
 				94DAAD22233613B600AEF5CD /* RecipleaseErrors.swift in Sources */,
 			);
