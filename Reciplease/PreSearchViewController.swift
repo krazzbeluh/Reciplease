@@ -26,7 +26,7 @@ class PreSearchViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func fetchData(completion: @escaping (Result<[Recipe], Errors>) -> Void) {
+    func fetchData(completion: @escaping (Result<[Recipe], Error>) -> Void) {
         RecipesFetcher().fetchRecipes { result in
             switch result {
             case .success(let recipes):
@@ -50,6 +50,10 @@ class PreSearchViewController: UIViewController {
     }
     
     @IBAction func didTapSearchButton(_ sender: Any) {
+        guard IngredientListForSearch.ingredients.count > 0 else {
+            showAlert(with: IngredientListForSearch.IngredientListError.voidList)
+            return
+        }
         searchRecipesAndPerformSegue()
     }
     
@@ -69,18 +73,18 @@ class PreSearchViewController: UIViewController {
     
     func addIngredient(_ ingredient: String?) {
         guard let ingredient = ingredient else {
-            showAlert(with: Errors.nilInTextField)
+            showAlert(with: UIError.nilInTextField)
             return
         }
 
         guard ingredient != "" else {
-            showAlert(with: Errors.nilInTextField)
+            showAlert(with: UIError.nilInTextField)
             return
         }
 
         for ingredientInList in IngredientListForSearch.ingredients {
             guard ingredient != ingredientInList else {
-                showAlert(with: Errors.ingredientAlreadyInList)
+                showAlert(with: IngredientListForSearch.IngredientListError.ingredientAlreadyInList)
                 return
             }
         }

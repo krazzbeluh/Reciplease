@@ -18,7 +18,7 @@ class RecipeViewController: UIViewController {
 
     @IBAction func didTapRedirectionButton(_ sender: Any) {
         guard let url = URL(string: recipe.recipeUrl) else {
-            showAlert(with: Errors.incorectUrl)
+            showAlert(with: NetworkService.NetworkError.incorectUrl)
             return
         }
         UIApplication.shared.open(url)

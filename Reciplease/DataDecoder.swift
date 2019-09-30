@@ -7,6 +7,11 @@
 
 import Foundation
 
+// MARK: - Errors
+enum DecoderError: Error {
+    case unableToDecodeData
+}
+
 // MARK: - Welcome
 struct Welcome: Decodable {
     let q: String

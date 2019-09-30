@@ -14,20 +14,26 @@ protocol DisplayAlert: UIViewController {
 }
 
 extension UIViewController: DisplayAlert {
+    enum UIError: Error {
+        case nilInTextField
+    }
+    
     func showAlert(with error: Error) {
         let message: String
         switch error {
-        case Errors.nilInTextField:
+        case UIError.nilInTextField:
             message = "Please type something"
-        case Errors.ingredientAlreadyInList:
+        case IngredientListForSearch.IngredientListError.ingredientAlreadyInList:
             message = "This ingredient is already in list"
-        case Errors.incorectUrl:
+        case IngredientListForSearch.IngredientListError.voidList:
+            message = "Please insert ingredient"
+        case NetworkService.NetworkError.incorectUrl:
             message = "Invalid URL"
-        case Errors.noData:
+        case NetworkService.NetworkError.noData:
             message = "Unable to fetch data"
-        case Errors.responseNot200:
+        case NetworkService.NetworkError.responseNot200:
             message = "API response error"
-        case Errors.unableToDecodeData:
+        case DecoderError.unableToDecodeData:
             message = "Unable to decode data"
         default:
             message = "Erreur : \(error)"
