@@ -41,13 +41,12 @@ class RecipeTableViewCell: UITableViewCell {
         self.ingredientsList.text = ingredientsList
 
         let url = URL(string: recipe.imageUrl)
-        dishButton.kf.setImage(with: url, for: .normal) { result in
+        dishButton.kf.setImage(with: url, for: .normal, placeholder: #imageLiteral(resourceName: "DefaultImageCatalog")) { result in
             switch result {
             case .success(let imageResult):
                 print(imageResult)
             case .failure(let error):
                 print(error)
-                self.dishButton.setImage(#imageLiteral(resourceName: "DefaultImageCatalog"), for: .normal)
             }
         }
     }

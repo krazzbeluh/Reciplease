@@ -14,11 +14,7 @@ class RecipesFetcher {
         networkService = NetworkService(url: url)
     }
     
-    init(session: NetworkService) {
-        networkService = session
-    }
-    
-    private var networkService = NetworkService(url: "https://www.google.fr")
+    var networkService = NetworkService(url: "https://www.google.fr")
     private var url: String {
         var ingredientsString = ""
         

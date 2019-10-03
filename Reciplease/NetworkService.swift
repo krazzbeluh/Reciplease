@@ -14,9 +14,10 @@ class NetworkService {
     }
     
     func getData(callback: @escaping(Result<Data, NetworkError>) -> Void) {
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
+
         task?.cancel()
         task = networkSession.dataTask(with: request) { (data, response, error) -> Void in
             DispatchQueue.main.async {
@@ -24,20 +25,20 @@ class NetworkService {
                     callback(.failure(.noData))
                     return
                 }
-                
+
                 guard error == nil else {
                     callback(.failure(.error))
                     return
                 }
-                
+
                 guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     callback(.failure(.responseNot200))
                     return
                 }
-                
+
                 callback(.success(data))
             }
-            
+
         }
         task?.resume()
     }

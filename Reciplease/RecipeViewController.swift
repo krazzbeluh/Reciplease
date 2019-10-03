@@ -10,6 +10,8 @@ import UIKit
 
 class RecipeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var starButton: UIBarButtonItem!
+    
     var recipe: Recipe!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,6 +25,15 @@ class RecipeViewController: UIViewController {
         }
         UIApplication.shared.open(url)
     }
+    
+    @IBAction func didTabStarButton(_ sender: Any) {
+        favoriteRecipe()
+    }
+    
+    func favoriteRecipe() {
+        
+    }
+    
 }
 
 extension RecipeViewController: UITableViewDataSource {
