@@ -41,7 +41,7 @@ class RecipesFetcher {
         networkService.getData { result in
             switch result {
             case .success(let data):
-                guard let recipesData = try? JSONDecoder().decode(Welcome.self, from: data) else {
+                guard let recipesData = try? JSONDecoder().decode(Edamam.self, from: data) else {
                     completion(.failure(DecoderError.unableToDecodeData))
                     return
                 }
@@ -51,16 +51,13 @@ class RecipesFetcher {
                     
                     var ingredients = [Ingredient]()
                     for ingredient in hit.recipe.ingredients {
-                        ingredients.append(Ingredient(name: ingredient.food,
-                                                      quantity: ingredient.quantity,
-                                                      measure: ingredient.measure ?? ""))
+                        ingredients.append(Ingredient(name: ingredient.food))
                     }
                     
                     recipes.append(Recipe(name: hit.recipe.label,
                                           image: hit.recipe.image,
                                           recipe: hit.recipe.url,
-                                          ingredients: ingredients,
-                                          mark: hit.recipe.yield))
+                                          ingredients: ingredients))
                 }
                 
                 completion(.success(recipes))

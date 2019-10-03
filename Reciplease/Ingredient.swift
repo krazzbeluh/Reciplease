@@ -11,12 +11,8 @@ import Foundation
 class Ingredient {
     
     let name: String
-    let quantity: Float
-    let measure: String
     
-    init(name: String, quantity: Float, measure: String) {
+    init(name: String) {
         self.name = name
-        self.quantity = quantity
-        self.measure = measure
     }
 }

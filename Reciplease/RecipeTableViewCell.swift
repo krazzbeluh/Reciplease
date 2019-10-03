@@ -13,7 +13,6 @@ class RecipeTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ingredientsList: UILabel!
     @IBOutlet weak var dishButton: UIButton!
-    @IBOutlet weak var mark: UILabel!
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -26,7 +25,6 @@ class RecipeTableViewCell: UITableViewCell {
         nameLabel.text = recipe.name
         
         dishButton.titleLabel?.text = String(recipeId)
-        self.mark.text = String(recipe.mark)
         
         var ingredientsList = ""
         var index = 0

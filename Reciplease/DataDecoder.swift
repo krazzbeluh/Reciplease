@@ -3,8 +3,6 @@
 //
 //   let welcome = try? newJSONDecoder().decode(Welcome.self, from: jsonData)
 
-//swiftlint:disable redundant_string_enum_value
-
 import Foundation
 
 // MARK: - Errors
@@ -13,10 +11,9 @@ enum DecoderError: Error {
 }
 
 // MARK: - Welcome
-struct Welcome: Decodable {
+struct Edamam: Decodable {
     let q: String
     let from, to: Int
-    let params: Params
     let more: Bool
     let count: Int
     let hits: [Hit]
@@ -25,7 +22,6 @@ struct Welcome: Decodable {
 // MARK: - Hit
 struct Hit: Decodable {
     let recipe: RecipeDecoder
-    let bookmarked, bought: Bool
 }
 
 // MARK: - Recipe
@@ -33,75 +29,14 @@ struct RecipeDecoder: Decodable {
     let uri: String
     let label: String
     let image: String
-    let source: String
     let url: String
     let shareAs: String
-    let yield: Int
-    let dietLabels, healthLabels, cautions, ingredientLines: [String]
     let ingredients: [IngredientDecoder]
-    let calories, totalWeight: Double
-    let totalNutrients, totalDaily: [String: Total]
-    let digest: [Digest]
-}
-
-// MARK: - Digest
-struct Digest: Decodable {
-    let label, tag: String
-    let schemaOrgTag: SchemaOrgTag?
-    let total: Double
-    let hasRDI: Bool
-    let daily: Double
-    let unit: Unit
-    let sub: [Digest]?
-}
-
-enum SchemaOrgTag: String, Decodable {
-    case carbohydrateContent = "carbohydrateContent"
-    case cholesterolContent = "cholesterolContent"
-    case fatContent = "fatContent"
-    case fiberContent = "fiberContent"
-    case proteinContent = "proteinContent"
-    case saturatedFatContent = "saturatedFatContent"
-    case sodiumContent = "sodiumContent"
-    case sugarContent = "sugarContent"
-    case transFatContent = "transFatContent"
-}
-
-enum Unit: String, Decodable {
-    case empty = "%"
-    case g = "g"
-    case iu = "IU"
-    case kcal = "kcal"
-    case mg = "mg"
-    case µg = "µg"
 }
 
 // MARK: - Ingredient
 struct IngredientDecoder: Decodable {
-    let text: String
-    let quantity: Float
-    let measure: String?
     let food: String
-    let weight: Double
-}
-
-// MARK: - Total
-struct Total: Decodable {
-    let label: String
-    let quantity: Double
-    let unit: Unit
-}
-
-// MARK: - Params
-struct Params: Decodable {
-    let sane: [JSONAny]
-    let q, appKey, appID: [String]
-
-    enum CodingKeys: String, CodingKey {
-        case sane, q
-        case appKey = "app_key"
-        case appID = "app_id"
-    }
 }
 
 // MARK: - Encode/decode helpers

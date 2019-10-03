@@ -13,14 +13,12 @@ class Recipe {
     let imageUrl: String
     let recipeUrl: String
     let ingredients: [Ingredient]
-    let mark: Int
     
-    init(name: String, image: String, recipe: String, ingredients: [Ingredient], mark: Int) {
+    init(name: String, image: String, recipe: String, ingredients: [Ingredient]) {
         self.name = name
         imageUrl = image
         recipeUrl = recipe
         self.ingredients = ingredients
-        self.mark = mark
     }
     
 }
