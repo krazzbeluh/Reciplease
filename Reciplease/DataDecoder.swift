@@ -30,7 +30,6 @@ struct RecipeDecoder: Decodable {
     let label: String
     let image: String
     let url: String
-    let shareAs: String
     let ingredients: [IngredientDecoder]
 }
 

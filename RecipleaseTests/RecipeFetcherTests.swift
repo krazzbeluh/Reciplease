@@ -17,7 +17,9 @@ class RecipeFetcherTests: XCTestCase {
     }
     
     func testRequestShouldReturnFailedCallbackIfError() {
-        recipesFetcher.networkService = FakeNetworkSession(data: <#T##Data?#>, response: <#T##URLResponse?#>, error: <#T##Error?#>)
+        recipesFetcher.networkService = FakeNetworkSession(data: <#T##Data?#>,
+                                                           response: <#T##URLResponse?#>,
+                                                           error: <#T##Error?#>)
         
         let expectation = XCTestExpectation(description: "wait for queue change.")
         

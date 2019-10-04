@@ -57,7 +57,8 @@ class RecipesFetcher {
                     recipes.append(Recipe(name: hit.recipe.label,
                                           image: hit.recipe.image,
                                           recipe: hit.recipe.url,
-                                          ingredients: ingredients))
+                                          ingredients: ingredients,
+                                          uri: hit.recipe.uri))
                 }
                 
                 completion(.success(recipes))
