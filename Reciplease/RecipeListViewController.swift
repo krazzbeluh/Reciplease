@@ -14,6 +14,20 @@ class RecipeListViewController: UIViewController {
     var recipes: [Recipe]!
     
     override func viewWillAppear(_ animated: Bool) {
+        if recipes == nil {
+            let bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
+            for bookmark in bookmarks {
+                RecipesFetcher().fetchRecipes { result in
+                    switch result {
+                    case .success(_):
+                        print("coucou")
+                    case .failure(_):
+                        print("pantoufle")
+                    }
+                }
+            }
+        }
+        
         tableView.reloadData()
     }
     

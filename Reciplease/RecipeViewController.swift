@@ -13,9 +13,21 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var starButton: UIBarButtonItem!
     
     var recipe: Recipe!
+    private var bookmarks = [String]()
+    
+    private var isBookmarked: Bool {
+        for bookmark in bookmarks where bookmark == recipe.identifier {
+            return true
+        }
+        
+        return false
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
+        bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
+        
+        setBookmarkButton(bookmarked: isBookmarked)
     }
 
     @IBAction func didTapRedirectionButton(_ sender: Any) {
@@ -30,8 +42,28 @@ class RecipeViewController: UIViewController {
         switchBookmarkRecipe()
     }
     
-    func switchBookmarkRecipe() {
+    private func switchBookmarkRecipe() {
+        if isBookmarked {
+            for index in 0 ... bookmarks.count - 1 where bookmarks[index] == recipe.identifier {
+                bookmarks.remove(at: index)
+                
+//                breaking to avoid fatalError : Index out of range
+                break
+            }
+        } else {
+            bookmarks.append(recipe.identifier)
+        }
         
+        setBookmarkButton(bookmarked: isBookmarked)
+        UserDefaults.standard.set(bookmarks, forKey: "bookmarks")
+    }
+    
+    private func setBookmarkButton(bookmarked: Bool) {
+        if bookmarked {
+            starButton.image = UIImage(systemName: "star.fill")
+        } else {
+            starButton.image = UIImage(systemName: "star")
+        }
     }
     
 }
