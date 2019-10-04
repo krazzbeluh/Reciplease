@@ -11,24 +11,46 @@ import UIKit
 class RecipeListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var recipes: [Recipe]!
+    var recipes = [Recipe]()
+    var bookmarks = true
     
     override func viewWillAppear(_ animated: Bool) {
-        if recipes == nil {
-            let bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
-            for bookmark in bookmarks {
-                RecipesFetcher().fetchRecipes { result in
-                    switch result {
-                    case .success(_):
-                        print("coucou")
-                    case .failure(_):
-                        print("pantoufle")
+        if bookmarks {
+            fetchBookmarks {
+                self.tableView.reloadData()
+            }
+        } else {
+            tableView.reloadData()
+        }
+    }
+    
+    private func fetchBookmarks(completion: @escaping (() -> Void)) {
+        let bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
+        
+        let numberOfBookmarks = bookmarks.count
+        var fetchedRecipes = 0
+        
+        for bookmark in bookmarks {
+            BookmarkFetcher(identifier: bookmark).fetchRecipe { result in
+                fetchedRecipes += 1
+                
+                switch result {
+                case .success(let recipe):
+                    guard let recipe = recipe else {
+                        self.showAlert(with: NetworkService.NetworkError.emptyBookmarkResponse)
+                        return
                     }
+                    
+                    self.recipes.append(recipe)
+                case .failure(let error):
+                    self.showAlert(with: error)
+                }
+                
+                if fetchedRecipes == numberOfBookmarks {
+                    completion()
                 }
             }
         }
-        
-        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

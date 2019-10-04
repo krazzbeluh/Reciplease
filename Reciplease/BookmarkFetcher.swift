@@ -25,7 +25,7 @@ class BookmarkFetcher {
     var identifier: String
     
 //    Main func
-    func fetchRecipes(completion: @escaping (Result<Recipe?, Error>) -> Void) {
+    func fetchRecipe(completion: @escaping (Result<Recipe?, Error>) -> Void) {
         networkService.getData { result in
             switch result {
             case .success(let data):

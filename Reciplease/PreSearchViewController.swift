@@ -45,7 +45,14 @@ class PreSearchViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRequestList" {
             let successVC = segue.destination as! RecipeListViewController
+            
+            guard let recipes = recipes else {
+                showAlert(with: NetworkService.NetworkError.emptyResponse)
+                return
+            }
+            
             successVC.recipes = recipes
+            successVC.bookmarks = false
         }
     }
     

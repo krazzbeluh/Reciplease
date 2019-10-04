@@ -10,7 +10,7 @@ class NetworkService {
     var task: URLSessionDataTask?
     
     enum NetworkError: Error {
-        case noData, error, responseNot200, incorectUrl
+        case noData, error, responseNot200, incorectUrl, emptyResponse, emptyBookmarkResponse
     }
     
     func getData(callback: @escaping(Result<Data, NetworkError>) -> Void) {
