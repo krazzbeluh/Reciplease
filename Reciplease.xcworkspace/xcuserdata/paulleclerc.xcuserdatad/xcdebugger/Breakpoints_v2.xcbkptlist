@@ -23,15 +23,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8844E03D-376B-45BB-B985-3C28EC7C7336"
+            uuid = "4DFBACBB-B337-424C-9229-5936CA0778C4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Reciplease/RecipeListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -39,7 +39,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EA0C89C3-C1A3-4CA9-BF11-BDDD998B783A"
+            uuid = "67C2A4F6-9D5D-4487-B848-8BF7218CF663"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -55,47 +55,63 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B9795604-673D-438D-9695-B1F956E2E2A3"
+            uuid = "C30D62FC-E348-4562-908E-DFADD3878AFA"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reciplease/BookmarkFetcher.swift"
+            filePath = "Reciplease/RecipeListViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "fetchRecipe(completion:)"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7D741401-8C91-4331-99E5-04CB2C895CB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Reciplease/RecipeListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B9795604-673D-438D-9695-B1F956E2E2A3 - 399fbc484a07f79"
+                  uuid = "7D741401-8C91-4331-99E5-04CB2C895CB2 - b76ec36fb69e0715"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Reciplease.BookmarkFetcher.fetchRecipe(completion: (Swift.Result&lt;Swift.Optional&lt;Reciplease.Recipe&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "Reciplease.RecipeListViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Reciplease"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/BookmarkFetcher.swift"
+                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/RecipeListViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "54">
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "216">
                </Location>
                <Location
-                  uuid = "B9795604-673D-438D-9695-B1F956E2E2A3 - bf4c1d9548ab8273"
+                  uuid = "7D741401-8C91-4331-99E5-04CB2C895CB2 - 1ef08a9cca75e35b"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; () in Reciplease.BookmarkFetcher.fetchRecipe(completion: (Swift.Result&lt;Swift.Optional&lt;Reciplease.Recipe&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Array&lt;Reciplease.Recipe&gt;) -&gt; () in Reciplease.RecipeListViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Reciplease"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/BookmarkFetcher.swift"
+                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/RecipeListViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "337">
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "87">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -103,63 +119,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C1EBCCAF-6900-400D-9D7C-32A7B85C2A39"
+            uuid = "8DB6B7AA-6A7D-4F9F-8656-5913A4788B45"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Reciplease/BookmarkFetcher.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "fetchRecipe(completion:)"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "fetchRecipes(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4AA63B0C-9E16-430F-9EDE-3E73640B7CCD"
+            uuid = "AE1CD978-58AE-42B3-A9BB-257CC6172279"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reciplease/BookmarkFetcher.swift"
+            filePath = "Reciplease/NetworkService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "fetchRecipe(completion:)"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "getData(callback:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DF2F546B-CEE8-4CDC-8B0E-5846D916C7FB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Reciplease/NetworkService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getData(callback:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4AA63B0C-9E16-430F-9EDE-3E73640B7CCD - bf4c1d9548ab8273"
+                  uuid = "DF2F546B-CEE8-4CDC-8B0E-5846D916C7FB - 87bd52f606058c33"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; () in Reciplease.BookmarkFetcher.fetchRecipe(completion: (Swift.Result&lt;Swift.Optional&lt;Reciplease.Recipe&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Reciplease.NetworkService.getData(callback: (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Reciplease"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/BookmarkFetcher.swift"
+                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/NetworkService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "414">
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "295">
                </Location>
                <Location
-                  uuid = "4AA63B0C-9E16-430F-9EDE-3E73640B7CCD - bf4c1d9548ab8273"
+                  uuid = "DF2F546B-CEE8-4CDC-8B0E-5846D916C7FB - bc51aa16503985ed"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; () in Reciplease.BookmarkFetcher.fetchRecipe(completion: (Swift.Result&lt;Swift.Optional&lt;Reciplease.Recipe&gt;, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Reciplease.NetworkService.getData(callback: (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "Reciplease"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/BookmarkFetcher.swift"
+                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/NetworkService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "31"
-                  endingLineNumber = "31"
-                  offsetFromSymbolStart = "457">
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "262">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -167,33 +199,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FE328C57-38A3-4EA1-B2BC-54DC7F38DC34"
+            uuid = "967165AC-8543-4511-A4B1-ACA5404DE0A0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Reciplease/BookmarkFetcher.swift"
+            filePath = "Reciplease/NetworkService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "fetchRecipe(completion:)"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "getData(callback:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C2F8B59B-FFA5-4B13-A2EA-AA259C0C8172"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Reciplease/BookmarkFetcher.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "fetchRecipe(completion:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "967165AC-8543-4511-A4B1-ACA5404DE0A0 - 42483499d9f11af9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Reciplease.NetworkService.getData(callback: (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Reciplease"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "353">
+               </Location>
+               <Location
+                  uuid = "967165AC-8543-4511-A4B1-ACA5404DE0A0 - 87bd52f606058c33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Reciplease.NetworkService.getData(callback: (Swift.Result&lt;Foundation.Data, Reciplease.NetworkService.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "Reciplease"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/paulleclerc/Documents/Reciplease/Reciplease/NetworkService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

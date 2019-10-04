@@ -18,7 +18,6 @@ class NetworkService {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 
-        task?.cancel()
         task = networkSession.dataTask(with: request) { (data, response, error) -> Void in
             DispatchQueue.main.async {
                 guard let data = data else {
@@ -41,5 +40,13 @@ class NetworkService {
 
         }
         task?.resume()
+    }
+    
+    func getData(url: URL, callback: @escaping(Result<Data, NetworkError>) -> Void) {
+        self.url = url
+        
+        getData { result in
+            callback(result)
+        }
     }
 }

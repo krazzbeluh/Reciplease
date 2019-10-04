@@ -51,6 +51,7 @@ class RecipeViewController: UIViewController {
                 break
             }
         } else {
+            print(recipe.identifier)
             bookmarks.append(recipe.identifier)
         }
         

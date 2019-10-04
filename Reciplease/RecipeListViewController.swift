@@ -12,11 +12,14 @@ class RecipeListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var recipes = [Recipe]()
-    var bookmarks = true
+    var fromPreSearchVC = false
+    var gotten = false
     
     override func viewWillAppear(_ animated: Bool) {
-        if bookmarks {
-            fetchBookmarks {
+        if !fromPreSearchVC {
+            fetchBookmarks { recipes in
+                self.recipes = recipes
+                self.gotten = true
                 self.tableView.reloadData()
             }
         } else {
@@ -24,32 +27,12 @@ class RecipeListViewController: UIViewController {
         }
     }
     
-    private func fetchBookmarks(completion: @escaping (() -> Void)) {
+    private func fetchBookmarks(completion: @escaping (([Recipe]) -> Void)) {
         let bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
+        print(bookmarks)
         
-        let numberOfBookmarks = bookmarks.count
-        var fetchedRecipes = 0
-        
-        for bookmark in bookmarks {
-            BookmarkFetcher(identifier: bookmark).fetchRecipe { result in
-                fetchedRecipes += 1
-                
-                switch result {
-                case .success(let recipe):
-                    guard let recipe = recipe else {
-                        self.showAlert(with: NetworkService.NetworkError.emptyBookmarkResponse)
-                        return
-                    }
-                    
-                    self.recipes.append(recipe)
-                case .failure(let error):
-                    self.showAlert(with: error)
-                }
-                
-                if fetchedRecipes == numberOfBookmarks {
-                    completion()
-                }
-            }
+        BookmarkFetcher(identifiers: bookmarks).fetchRecipes { recipes in
+            completion(recipes)
         }
     }
     
@@ -78,18 +61,27 @@ extension RecipeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //        return number of rows
-        return recipes.count
+        if !fromPreSearchVC && !gotten {
+            return 1
+        } else {
+            return recipes.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell",
-                                                       for: indexPath) as? RecipeTableViewCell else {
-                                                        return UITableViewCell()
+        if !fromPreSearchVC && !gotten {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+            
+            return cell
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeCell",
+                                                           for: indexPath) as? RecipeTableViewCell else {
+                                                            return UITableViewCell()
+            }
+            
+            cell.configure(recipeId: indexPath.row, recipe: self.recipes[indexPath.row])
+            
+            return cell
         }
-        
-        cell.configure(recipeId: indexPath.row, recipe: self.recipes[indexPath.row])
-        
-        return cell
     }
 }

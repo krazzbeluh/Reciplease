@@ -23,6 +23,8 @@ class PreSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        UserDefaults.standard.set([String](), forKey: "bookmarks")
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +54,7 @@ class PreSearchViewController: UIViewController {
             }
             
             successVC.recipes = recipes
-            successVC.bookmarks = false
+            successVC.fromPreSearchVC = true
         }
     }
     

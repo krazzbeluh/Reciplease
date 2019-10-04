@@ -23,10 +23,10 @@ class Recipe {
         
         let unUsedUriSize = 51
         let index = uri.count - unUsedUriSize
-        let mySubstring = String(uri.suffix(index))
-        print(mySubstring)
+        let identifier = String(uri.suffix(index))
+        print(identifier)
         
-        identifier = uri
+        self.identifier = identifier
     }
     
 }
