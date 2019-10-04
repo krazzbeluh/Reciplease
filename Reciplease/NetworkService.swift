@@ -42,7 +42,7 @@ class NetworkService {
         task?.resume()
     }
     
-    func getData(url: URL, callback: @escaping(Result<Data, NetworkError>) -> Void) {
+    func getData(url: URL, callback: @escaping (Result<Data, NetworkError>) -> Void) {
         self.url = url
         
         getData { result in

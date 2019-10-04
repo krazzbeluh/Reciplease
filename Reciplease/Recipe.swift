@@ -30,3 +30,9 @@ class Recipe {
     }
     
 }
+
+extension Recipe: Equatable {
+    static func == (lhs: Recipe, rhs: Recipe) -> Bool {
+        return lhs.identifier == rhs.identifier
+    }
+}

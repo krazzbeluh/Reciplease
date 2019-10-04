@@ -12,15 +12,21 @@ class RecipeListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var recipes = [Recipe]()
+    private var firstLoad = true
     var fromPreSearchVC = false
-    var gotten = false
+    private var gotten = false
+    private var bookmarks = [String]()
+    private var oldBookmarks = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
-        if !fromPreSearchVC {
+        bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
+        if !fromPreSearchVC && (firstLoad || bookmarks != oldBookmarks) {
             fetchBookmarks { recipes in
                 self.recipes = recipes
                 self.gotten = true
                 self.tableView.reloadData()
+                self.oldBookmarks = self.bookmarks
+                self.firstLoad = false
             }
         } else {
             tableView.reloadData()
@@ -28,7 +34,6 @@ class RecipeListViewController: UIViewController {
     }
     
     private func fetchBookmarks(completion: @escaping (([Recipe]) -> Void)) {
-        let bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
         print(bookmarks)
         
         BookmarkFetcher(identifiers: bookmarks).fetchRecipes { recipes in
