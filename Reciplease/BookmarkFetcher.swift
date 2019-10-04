@@ -67,8 +67,8 @@ class BookmarkFetcher {
                 case .failure(let error):
                     print(error)
                 }
+                completion(recipes)
             }
         }
-        completion(recipes)
     }
 }
