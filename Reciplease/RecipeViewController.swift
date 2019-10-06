@@ -13,10 +13,9 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var starButton: UIBarButtonItem!
     
     var recipe: Recipe!
-    private var bookmarks = [String]()
     
     private var isBookmarked: Bool {
-        for bookmark in bookmarks where bookmark == recipe.identifier {
+        for bookmark in Recipe.bookmarks where bookmark == recipe.identifier {
             return true
         }
         
@@ -25,7 +24,6 @@ class RecipeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
         
         setBookmarkButton(bookmarked: isBookmarked)
     }
@@ -44,19 +42,18 @@ class RecipeViewController: UIViewController {
     
     private func switchBookmarkRecipe() {
         if isBookmarked {
-            for index in 0 ... bookmarks.count - 1 where bookmarks[index] == recipe.identifier {
-                bookmarks.remove(at: index)
+            for index in 0 ... Recipe.bookmarks.count - 1 where Recipe.bookmarks[index] == recipe.identifier {
+                Recipe.bookmarks.remove(at: index)
                 
 //                breaking to avoid fatalError : Index out of range
                 break
             }
         } else {
             print(recipe.identifier)
-            bookmarks.append(recipe.identifier)
+            Recipe.bookmarks.append(recipe.identifier)
         }
         
         setBookmarkButton(bookmarked: isBookmarked)
-        UserDefaults.standard.set(bookmarks, forKey: "bookmarks")
     }
     
     private func setBookmarkButton(bookmarked: Bool) {

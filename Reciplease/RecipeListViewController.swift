@@ -15,19 +15,17 @@ class RecipeListViewController: UIViewController {
     private var firstLoad = true
     var fromPreSearchVC = false
     private var gotten = false
-    private var bookmarks = [String]()
     private var oldBookmarks = [String]()
     
     override func viewWillAppear(_ animated: Bool) {
-        bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
         tableView.reloadData()
-        if !fromPreSearchVC && (firstLoad || bookmarks != oldBookmarks) {
+        if !fromPreSearchVC && (firstLoad || Recipe.bookmarks != oldBookmarks) {
 //            if bookmarks.count > 0 {
                 fetchBookmarks { recipes in
                     self.recipes = recipes
                     self.gotten = true
                     self.tableView.reloadData()
-                    self.oldBookmarks = self.bookmarks
+                    self.oldBookmarks = Recipe.bookmarks
                     self.firstLoad = false
                 }
 //            } else {
@@ -37,9 +35,9 @@ class RecipeListViewController: UIViewController {
     }
     
     private func fetchBookmarks(completion: @escaping (([Recipe]) -> Void)) {
-        print(bookmarks)
+        print(Recipe.bookmarks)
         
-        BookmarkFetcher(identifiers: bookmarks).fetchRecipes { recipes in
+        BookmarkFetcher(identifiers: Recipe.bookmarks).fetchRecipes { recipes in
             completion(recipes)
         }
     }
@@ -77,11 +75,11 @@ extension RecipeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if !fromPreSearchVC && !gotten && bookmarks.count > 0 {
+        if !fromPreSearchVC && !gotten && Recipe.bookmarks.count > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
             
             return cell
-        } else if !fromPreSearchVC && bookmarks.count == 0 {
+        } else if !fromPreSearchVC && Recipe.bookmarks .count == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoBookmarks", for: indexPath)
             
             return cell

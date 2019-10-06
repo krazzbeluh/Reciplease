@@ -15,6 +15,18 @@ class Recipe {
     let ingredients: [Ingredient]
     let identifier: String
     
+    private struct Keys {
+        static let bookmarks = "bookmarks"
+    }
+    static var bookmarks: [String] {
+        get {
+            return UserDefaults.standard.object(forKey: Keys.bookmarks) as? [String] ?? [String]()
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Keys.bookmarks)
+        }
+    }
+    
     init(name: String, image: String, recipe: String, ingredients: [Ingredient], uri: String) {
         self.name = name
         imageUrl = image
