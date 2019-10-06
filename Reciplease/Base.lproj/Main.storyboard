@@ -303,18 +303,15 @@
                                             <outlet property="nameLabel" destination="ktX-Mk-a0h" id="Ygp-lj-Ezb"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="loadingCell" id="tYl-83-k9Q">
-                                        <rect key="frame" x="0.0" y="158" width="414" height="434"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="tYl-83-k9Q">
+                                        <rect key="frame" x="0.0" y="158" width="414" height="97"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tYl-83-k9Q" id="Tag-Q3-FyX">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="434"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="OpE-Xx-3IR">
-                                                    <rect key="frame" x="20" y="30" width="374" height="374"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="OpE-Xx-3IR" secondAttribute="height" multiplier="1:1" id="y5F-4n-h8j"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="20" y="30" width="374" height="37"/>
                                                     <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </activityIndicatorView>
                                             </subviews>
@@ -324,6 +321,29 @@
                                                 <constraint firstItem="OpE-Xx-3IR" firstAttribute="top" secondItem="Tag-Q3-FyX" secondAttribute="top" constant="30" id="cW7-fa-CWW"/>
                                                 <constraint firstItem="OpE-Xx-3IR" firstAttribute="leading" secondItem="Tag-Q3-FyX" secondAttribute="leadingMargin" id="dwy-aa-Dhq"/>
                                                 <constraint firstItem="OpE-Xx-3IR" firstAttribute="centerX" secondItem="Tag-Q3-FyX" secondAttribute="centerX" id="yPe-6y-789"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoBookmarks" id="afu-Cd-Ies">
+                                        <rect key="frame" x="0.0" y="255" width="414" height="68"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="afu-Cd-Ies" id="O42-05-BsP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="68"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no bookmarks !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mfd-b3-sJe">
+                                                    <rect key="frame" x="20" y="19" width="374" height="30"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Background"/>
+                                            <constraints>
+                                                <constraint firstItem="Mfd-b3-sJe" firstAttribute="leading" secondItem="O42-05-BsP" secondAttribute="leadingMargin" id="1Ek-Ml-Jzm"/>
+                                                <constraint firstItem="Mfd-b3-sJe" firstAttribute="centerY" secondItem="O42-05-BsP" secondAttribute="centerY" id="5fE-Cz-2wR"/>
+                                                <constraint firstItem="Mfd-b3-sJe" firstAttribute="centerX" secondItem="O42-05-BsP" secondAttribute="centerX" id="S3g-bN-OzF"/>
+                                                <constraint firstItem="Mfd-b3-sJe" firstAttribute="top" secondItem="O42-05-BsP" secondAttribute="topMargin" constant="8" id="cV7-rW-6Em"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -519,6 +539,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ygn-bT-Mw8"/>
+        <segue reference="fun-e8-tWa"/>
     </inferredMetricsTieBreakers>
 </document>

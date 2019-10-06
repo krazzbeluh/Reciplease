@@ -20,16 +20,19 @@ class RecipeListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         bookmarks = UserDefaults.standard.object(forKey: "bookmarks") as? [String] ?? [String]()
+        tableView.reloadData()
         if !fromPreSearchVC && (firstLoad || bookmarks != oldBookmarks) {
-            fetchBookmarks { recipes in
-                self.recipes = recipes
-                self.gotten = true
-                self.tableView.reloadData()
-                self.oldBookmarks = self.bookmarks
-                self.firstLoad = false
-            }
-        } else {
-            tableView.reloadData()
+//            if bookmarks.count > 0 {
+                fetchBookmarks { recipes in
+                    self.recipes = recipes
+                    self.gotten = true
+                    self.tableView.reloadData()
+                    self.oldBookmarks = self.bookmarks
+                    self.firstLoad = false
+                }
+//            } else {
+//
+//            }
         }
     }
     
@@ -74,8 +77,12 @@ extension RecipeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if !fromPreSearchVC && !gotten {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath)
+        if !fromPreSearchVC && !gotten && bookmarks.count > 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
+            
+            return cell
+        } else if !fromPreSearchVC && bookmarks.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoBookmarks", for: indexPath)
             
             return cell
         } else {
