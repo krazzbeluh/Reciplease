@@ -23,9 +23,9 @@ extension UIViewController: DisplayAlert {
         switch error {
         case UIError.nilInTextField:
             message = "Please type something"
-        case IngredientListForSearch.IngredientListError.ingredientAlreadyInList:
+        case Ingredient.IngredientListError.ingredientAlreadyInList:
             message = "This ingredient is already in list"
-        case IngredientListForSearch.IngredientListError.voidList:
+        case Ingredient.IngredientListError.voidList:
             message = "Please insert ingredient"
         case NetworkService.NetworkError.incorectUrl:
             message = "Invalid URL"

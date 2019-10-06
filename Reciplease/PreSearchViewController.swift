@@ -23,9 +23,6 @@ class PreSearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        UserDefaults.standard.set([String](), forKey: "bookmarks")
-        // Do any additional setup after loading the view.
     }
     
     func fetchData(completion: @escaping (Result<[Recipe], Error>) -> Void) {
@@ -59,8 +56,8 @@ class PreSearchViewController: UIViewController {
     }
     
     @IBAction func didTapSearchButton(_ sender: Any) {
-        guard IngredientListForSearch.ingredients.count > 0 else {
-            showAlert(with: IngredientListForSearch.IngredientListError.voidList)
+        guard Ingredient.listForSearch.count > 0 else {
+            showAlert(with: Ingredient.IngredientListError.voidList)
             return
         }
         searchRecipesAndPerformSegue()
@@ -91,14 +88,14 @@ class PreSearchViewController: UIViewController {
             return
         }
 
-        for ingredientInList in IngredientListForSearch.ingredients {
+        for ingredientInList in Ingredient.listForSearch {
             guard ingredient != ingredientInList else {
-                showAlert(with: IngredientListForSearch.IngredientListError.ingredientAlreadyInList)
+                showAlert(with: Ingredient.IngredientListError.ingredientAlreadyInList)
                 return
             }
         }
 
-        IngredientListForSearch.addIngredient(ingredient)
+        Ingredient.listForSearch.append(ingredient)
 
         ingredientTextField.text = ""
     }
@@ -114,7 +111,7 @@ class PreSearchViewController: UIViewController {
     }
     
     private func clearList() {
-        IngredientListForSearch.ingredients = []
+        Ingredient.listForSearch = []
         tableView.reloadData()
     }
     
@@ -134,7 +131,7 @@ extension PreSearchViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return IngredientListForSearch.ingredients.count
+        return Ingredient.listForSearch.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -143,7 +140,7 @@ extension PreSearchViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let ingredient = IngredientListForSearch.ingredients[indexPath.row]
+        let ingredient = Ingredient.listForSearch[indexPath.row]
         
         cell.configure(name: ingredient)
         

@@ -33,7 +33,7 @@ class RecipesFetcher {
     
     private let key = "fed2ff4a"
     private var ingredients: [String] {
-        return IngredientListForSearch.ingredients
+        return Ingredient.listForSearch
     }
     
 //    Main func

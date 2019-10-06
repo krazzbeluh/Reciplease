@@ -9,6 +9,11 @@
 import Foundation
 
 class Ingredient {
+    enum IngredientListError: Error {
+        case ingredientAlreadyInList, voidList
+    }
+    
+    static var listForSearch: [String] = []
     
     let name: String
     
