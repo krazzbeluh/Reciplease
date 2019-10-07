@@ -15,30 +15,16 @@ class RecipeListViewController: UIViewController {
     private var firstLoad = true
     var fromPreSearchVC = false
     private var gotten = false
-    private var oldBookmarks = [String]()
+    private var oldBookmarks = [Recipe]()
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        if !fromPreSearchVC && (firstLoad || Recipe.bookmarks != oldBookmarks) {
-//            if bookmarks.count > 0 {
-                fetchBookmarks { recipes in
-                    self.recipes = recipes
-                    self.gotten = true
-                    self.tableView.reloadData()
-                    self.oldBookmarks = Recipe.bookmarks
-                    self.firstLoad = false
-                }
-//            } else {
-//
-//            }
-        }
-    }
-    
-    private func fetchBookmarks(completion: @escaping (([Recipe]) -> Void)) {
-        print(Recipe.bookmarks)
-        
-        BookmarkFetcher(identifiers: Recipe.bookmarks).fetchRecipes { recipes in
-            completion(recipes)
+        if !fromPreSearchVC && (firstLoad || Bookmark.all != oldBookmarks) {
+            self.recipes = Bookmark.all
+            self.gotten = true
+            self.tableView.reloadData()
+            self.oldBookmarks = Bookmark.all
+            self.firstLoad = false
         }
     }
     
@@ -75,11 +61,11 @@ extension RecipeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if !fromPreSearchVC && !gotten && Recipe.bookmarks.count > 0 {
+        if !fromPreSearchVC && !gotten && Bookmark.all.count > 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
             
             return cell
-        } else if !fromPreSearchVC && Recipe.bookmarks .count == 0 {
+        } else if !fromPreSearchVC && Bookmark.all.count == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "NoBookmarks", for: indexPath)
             
             return cell

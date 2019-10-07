@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Bookmark" representedClassName=".Bookmark" syncable="YES" codeGenerationType="category">
+    <entity name="BIngredient" representedClassName=".BIngredient" syncable="YES" codeGenerationType="category">
         <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="bookmark" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="Bookmark" inverseName="ingredients" inverseEntity="Bookmark"/>
+    </entity>
+    <entity name="Bookmark" representedClassName=".Bookmark" syncable="YES" codeGenerationType="category">
+        <attribute name="imageUrl" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="recipeUrl" optional="YES" attributeType="String"/>
+        <attribute name="uri" optional="YES" attributeType="String"/>
+        <relationship name="ingredients" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BIngredient" inverseName="bookmark" inverseEntity="BIngredient"/>
     </entity>
     <elements>
-        <element name="Bookmark" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Bookmark" positionX="-317.3515625" positionY="-0.1640625" width="128" height="118"/>
+        <element name="BIngredient" positionX="-54" positionY="0" width="128" height="73"/>
     </elements>
 </model>

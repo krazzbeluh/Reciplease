@@ -9,22 +9,14 @@
 import Foundation
 
 class Recipe {
-    let name: String
-    let imageUrl: String
-    let recipeUrl: String
-    let ingredients: [Ingredient]
-    let identifier: String
+    var name: String
+    var imageUrl: String
+    var recipeUrl: String
+    var ingredients: [Ingredient]
+    var uri: String
     
     private struct Keys {
         static let bookmarks = "bookmarks"
-    }
-    static var bookmarks: [String] {
-        get {
-            return UserDefaults.standard.object(forKey: Keys.bookmarks) as? [String] ?? [String]()
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: Keys.bookmarks)
-        }
     }
     
     init(name: String, image: String, recipe: String, ingredients: [Ingredient], uri: String) {
@@ -32,19 +24,21 @@ class Recipe {
         imageUrl = image
         recipeUrl = recipe
         self.ingredients = ingredients
-        
-        let unUsedUriSize = 51
-        let index = uri.count - unUsedUriSize
-        let identifier = String(uri.suffix(index))
-        print(identifier)
-        
-        self.identifier = identifier
+        self.uri = uri
     }
     
 }
 
 extension Recipe: Equatable {
     static func == (lhs: Recipe, rhs: Recipe) -> Bool {
-        return lhs.identifier == rhs.identifier
+        return lhs.uri == rhs.uri
+    }
+    
+    static func == (lhs: Recipe, rhs: Bookmark) -> Bool {
+        return lhs.uri == rhs.uri
+    }
+    
+    static func == (lhs: Bookmark, rhs: Recipe) -> Bool {
+        return lhs.uri == rhs.uri
     }
 }

@@ -15,7 +15,7 @@ class RecipeViewController: UIViewController {
     var recipe: Recipe!
     
     private var isBookmarked: Bool {
-        for bookmark in Recipe.bookmarks where bookmark == recipe.identifier {
+        for bookmark in Bookmark.all where bookmark == recipe {
             return true
         }
         
@@ -41,18 +41,16 @@ class RecipeViewController: UIViewController {
     }
     
     private func switchBookmarkRecipe() {
+        print(isBookmarked)
         if isBookmarked {
-            for index in 0 ... Recipe.bookmarks.count - 1 where Recipe.bookmarks[index] == recipe.identifier {
-                Recipe.bookmarks.remove(at: index)
+            for index in 0 ... Bookmark.all.count - 1 where Bookmark.all[index] == recipe {
+//                Bookmark.all.remove(at: index)
                 
 //                breaking to avoid fatalError : Index out of range
                 break
             }
         } else {
-            print(recipe.identifier)
-            Recipe.bookmarks.append(recipe.identifier)
-            
-            saveBookmark(name: recipe.name)
+            Bookmark.saveBookmark(recipe)
         }
         
         setBookmarkButton(bookmarked: isBookmarked)
@@ -64,15 +62,6 @@ class RecipeViewController: UIViewController {
         } else {
             starButton.image = UIImage(systemName: "star")
         }
-    }
-    
-    
-// MARK: - Core Data Tests
-    
-    func saveBookmark(name: String) {
-        let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = name
-        try? AppDelegate.viewContext.save()
     }
 }
 
