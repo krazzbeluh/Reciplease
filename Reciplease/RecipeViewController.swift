@@ -51,6 +51,8 @@ class RecipeViewController: UIViewController {
         } else {
             print(recipe.identifier)
             Recipe.bookmarks.append(recipe.identifier)
+            
+            saveBookmark(name: recipe.name)
         }
         
         setBookmarkButton(bookmarked: isBookmarked)
@@ -64,6 +66,14 @@ class RecipeViewController: UIViewController {
         }
     }
     
+    
+// MARK: - Core Data Tests
+    
+    func saveBookmark(name: String) {
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.name = name
+        try? AppDelegate.viewContext.save()
+    }
 }
 
 extension RecipeViewController: UITableViewDataSource {
