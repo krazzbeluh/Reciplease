@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		497341DB8A44E350254232C7 /* libPods-RecipleaseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 860C4B475DCA6EE552294A94 /* libPods-RecipleaseTests.a */; };
+		940D3089234B5BFB00309BB9 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 940D3087234B5BFB00309BB9 /* Reciplease.xcdatamodeld */; };
 		94107886233A72A500C3FEBB /* RecipeFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94107885233A72A500C3FEBB /* RecipeFetcherTests.swift */; };
 		9410788D233A792500C3FEBB /* FakeNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410788C233A792500C3FEBB /* FakeNetworkSession.swift */; };
 		94115D9B233968D00004F16D /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94115D9A233968D00004F16D /* Recipes.json */; };
@@ -48,6 +49,7 @@
 		6CCA87F1AAF91AD74B85F72B /* libPods-Reciplease.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Reciplease.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		860C4B475DCA6EE552294A94 /* libPods-RecipleaseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipleaseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E732413D98FA5EF1872FD6B /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
+		940D3088234B5BFB00309BB9 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		94107885233A72A500C3FEBB /* RecipeFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFetcherTests.swift; sourceTree = "<group>"; };
 		9410788C233A792500C3FEBB /* FakeNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkSession.swift; sourceTree = "<group>"; };
 		94115D9A233968D00004F16D /* Recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		940D308A234B5C0600309BB9 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				940D3087234B5BFB00309BB9 /* Reciplease.xcdatamodeld */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		94107888233A72AD00C3FEBB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,8 +144,8 @@
 			children = (
 				94BA535A233264D100CE5622 /* Recipe.swift */,
 				94BA535C2332657C00CE5622 /* Ingredient.swift */,
-				94AAB0BB23391279008CA9B3 /* JSONDecoding */,
 				94AAB0B42338F2A3008CA9B3 /* Networking */,
+				940D308A234B5C0600309BB9 /* CoreData */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -177,19 +187,12 @@
 		94AAB0B42338F2A3008CA9B3 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				94AAB0BC23391299008CA9B3 /* DataDecoder.swift */,
 				94115D9D233A1C1B0004F16D /* NetworkService.swift */,
 				94AAB0B52338F2C8008CA9B3 /* RecipesFetcher.swift */,
 				946726B323479A7600C88881 /* BookmarkFetcher.swift */,
 			);
 			name = Networking;
-			sourceTree = "<group>";
-		};
-		94AAB0BB23391279008CA9B3 /* JSONDecoding */ = {
-			isa = PBXGroup;
-			children = (
-				94AAB0BC23391299008CA9B3 /* DataDecoder.swift */,
-			);
-			name = JSONDecoding;
 			sourceTree = "<group>";
 		};
 		94B684A8232FD3FB00F09A56 = {
@@ -417,6 +420,7 @@
 				94B684B5232FD3FB00F09A56 /* AppDelegate.swift in Sources */,
 				94115D9E233A1C1B0004F16D /* NetworkService.swift in Sources */,
 				94BA535B233264D100CE5622 /* Recipe.swift in Sources */,
+				940D3089234B5BFB00309BB9 /* Reciplease.xcdatamodeld in Sources */,
 				94E08D6823425A8C00DAB3AC /* IntroduceTableViewCell.swift in Sources */,
 				94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */,
 			);
@@ -702,6 +706,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		940D3087234B5BFB00309BB9 /* Reciplease.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				940D3088234B5BFB00309BB9 /* Reciplease.xcdatamodel */,
+			);
+			currentVersion = 940D3088234B5BFB00309BB9 /* Reciplease.xcdatamodel */;
+			path = Reciplease.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 94B684A9232FD3FB00F09A56 /* Project object */;
 }

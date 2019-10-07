@@ -1,18 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14903" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Ingredient" representedClassName=".Ingredient" syncable="YES" codeGenerationType="category">
-        <attribute name="measure" optional="YES" attributeType="String"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="quantity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-    </entity>
-    <entity name="Recipe" representedClassName=".Recipe" syncable="YES" codeGenerationType="category">
-        <attribute name="imageUrl" optional="YES" attributeType="String"/>
-        <attribute name="mark" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="recipeUrl" optional="YES" attributeType="String"/>
-    </entity>
-    <elements>
-        <element name="Recipe" positionX="-394.8359375" positionY="-16.69140625" width="107.359375" height="103"/>
-        <element name="Ingredient" positionX="-54" positionY="18" width="128" height="88"/>
-    </elements>
+    <elements/>
 </model>
