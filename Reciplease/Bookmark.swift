@@ -49,7 +49,7 @@ class Bookmark: NSManagedObject {
             return nil
         }
         
-        guard let ingredientsSet = self.ingredients else {
+        guard let ingredientsSet = self.ingredients/*, ingredientsSet != []*/ else {
             return nil
         }
         
@@ -76,6 +76,7 @@ class Bookmark: NSManagedObject {
         bookmark.uri = recipe.uri
         bookmark.recipeUrl = recipe.recipeUrl
         bookmark.imageUrl = recipe.imageUrl
+//        bookmark.ingredients = NSSet(object: recipe.ingredients) 
         
         do {
             try AppDelegate.viewContext.save()
