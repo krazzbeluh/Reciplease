@@ -13,7 +13,6 @@
 		94107886233A72A500C3FEBB /* RecipeFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94107885233A72A500C3FEBB /* RecipeFetcherTests.swift */; };
 		9410788D233A792500C3FEBB /* FakeNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9410788C233A792500C3FEBB /* FakeNetworkSession.swift */; };
 		94115D9B233968D00004F16D /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94115D9A233968D00004F16D /* Recipes.json */; };
-		94115D9E233A1C1B0004F16D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94115D9D233A1C1B0004F16D /* NetworkService.swift */; };
 		943153692332959B0034F306 /* TestIngredientListForSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943153682332959B0034F306 /* TestIngredientListForSearch.swift */; };
 		94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E59233133B00022473D /* RecipeTableViewCell.swift */; };
 		94383E5C233134FD0022473D /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E5B233134FD0022473D /* RecipeListViewController.swift */; };
@@ -54,7 +53,6 @@
 		94107885233A72A500C3FEBB /* RecipeFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFetcherTests.swift; sourceTree = "<group>"; };
 		9410788C233A792500C3FEBB /* FakeNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeNetworkSession.swift; sourceTree = "<group>"; };
 		94115D9A233968D00004F16D /* Recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
-		94115D9D233A1C1B0004F16D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		943153682332959B0034F306 /* TestIngredientListForSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestIngredientListForSearch.swift; sourceTree = "<group>"; };
 		9431536A233295E00034F306 /* RecipleaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipleaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		94383E59233133B00022473D /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
@@ -189,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				94AAB0BC23391299008CA9B3 /* DataDecoder.swift */,
-				94115D9D233A1C1B0004F16D /* NetworkService.swift */,
 				94AAB0B52338F2C8008CA9B3 /* RecipesFetcher.swift */,
 			);
 			name = Networking;
@@ -417,7 +414,6 @@
 				94B684D82330F2BB00F09A56 /* PreSearchViewController.swift in Sources */,
 				94AAB0B62338F2C8008CA9B3 /* RecipesFetcher.swift in Sources */,
 				94B684B5232FD3FB00F09A56 /* AppDelegate.swift in Sources */,
-				94115D9E233A1C1B0004F16D /* NetworkService.swift in Sources */,
 				94BA535B233264D100CE5622 /* Recipe.swift in Sources */,
 				940D3089234B5BFB00309BB9 /* Reciplease.xcdatamodeld in Sources */,
 				94E08D6823425A8C00DAB3AC /* IntroduceTableViewCell.swift in Sources */,

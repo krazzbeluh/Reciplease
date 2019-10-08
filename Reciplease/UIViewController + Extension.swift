@@ -27,12 +27,12 @@ extension UIViewController: DisplayAlert {
             message = "This ingredient is already in list"
         case Ingredient.IngredientListError.voidList:
             message = "Please insert ingredient"
-        case NetworkService.NetworkError.incorectUrl:
-            message = "Invalid URL"
-        case NetworkService.NetworkError.noData:
-            message = "Unable to fetch data"
-        case NetworkService.NetworkError.responseNot200:
-            message = "API response error"
+//        case NetworkService.NetworkError.incorectUrl:
+//            message = "Invalid URL"
+//        case NetworkService.NetworkError.noData:
+//            message = "Unable to fetch data"
+//        case NetworkService.NetworkError.responseNot200:
+//            message = "API response error"
         case DecoderError.unableToDecodeData:
             message = "Unable to decode data"
         default:

@@ -46,7 +46,7 @@ class PreSearchViewController: UIViewController {
             let successVC = segue.destination as! RecipeListViewController
             
             guard let recipes = recipes else {
-                showAlert(with: NetworkService.NetworkError.emptyResponse)
+//                showAlert(with: NetworkService.NetworkError.emptyResponse)
                 return
             }
             

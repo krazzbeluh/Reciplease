@@ -47,10 +47,24 @@ class Bookmark: NSManagedObject {
             return nil
         }
         
+        guard let ingredientsSet = self.ingredients else {
+            return nil
+        }
+        
+        // MARK: A revoir
+        var ingredients = [Ingredient]()
+        for ingredient in ingredientsSet {
+            if let bIngredient = ingredient as? BIngredient {
+                if let ingredientName = bIngredient.name {
+                    ingredients.append(Ingredient(name: ingredientName))
+                }
+            }
+        }
+        
         return Recipe(name: name,
                       image: imageUrl,
                       recipe: recipeUrl,
-                      ingredients: [Ingredient](),
+                      ingredients: ingredients,
                       uri: uri)
     }
     

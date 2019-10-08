@@ -10,12 +10,6 @@ import Foundation
 import Alamofire
 
 class RecipesFetcher {
-    
-    init() {
-        networkService = NetworkService(url: url)
-    }
-    
-    var networkService = NetworkService(url: "https://www.google.fr")
     private var url: String {
         var ingredientsString = ""
         
@@ -39,16 +33,21 @@ class RecipesFetcher {
     
 //    Main func
     func fetchRecipes(completion: @escaping (Result<[Recipe], Error>) -> Void) {
-        networkService.getData { result in
-            switch result {
-            case .success(let data):
-                guard let recipesData = try? JSONDecoder().decode(Edamam.self, from: data) else {
-                    completion(.failure(DecoderError.unableToDecodeData))
+        AF.request(url).responseJSON { response in
+            debugPrint("\n\napi response >>>\(String(describing: response.value))\n")
+            
+            switch response.result {
+            case .success(_):
+                guard let data = response.data else {
+                    return
+                }
+                
+                guard let recipesDecoded = try? JSONDecoder().decode(Edamam.self, from: data) else {
                     return
                 }
                 
                 var recipes = [Recipe]()
-                for hit in recipesData.hits {
+                for hit in recipesDecoded.hits {
                     
                     var ingredients = [Ingredient]()
                     for ingredient in hit.recipe.ingredients {
@@ -64,7 +63,7 @@ class RecipesFetcher {
                 
                 completion(.success(recipes))
             case .failure(let error):
-                completion(.failure(error))
+                print(error)
             }
         }
     }
