@@ -19,11 +19,11 @@ class RecipeListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
-        if !fromPreSearchVC && (firstLoad || Bookmark.all != oldBookmarks) {
-            self.recipes = Bookmark.all
+        if !fromPreSearchVC && (firstLoad || Bookmark.allRecipes != oldBookmarks) {
+            self.recipes = Bookmark.allRecipes
             self.gotten = true
             self.tableView.reloadData()
-            self.oldBookmarks = Bookmark.all
+            self.oldBookmarks = Bookmark.allRecipes
             self.firstLoad = false
         }
     }

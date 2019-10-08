@@ -10,6 +10,10 @@ import Foundation
 import Alamofire
 
 class RecipesFetcher {
+    enum FetcherError: Error {
+        case noData
+    }
+    
     private var url: String {
         var ingredientsString = ""
         
@@ -31,37 +35,22 @@ class RecipesFetcher {
         return Ingredient.listForSearch
     }
     
-//    Main func
+// MARK: Main func
     func fetchRecipes(completion: @escaping (Result<[Recipe], Error>) -> Void) {
         AF.request(url).responseJSON { response in
-            debugPrint("\n\napi response >>>\(String(describing: response.value))\n")
-            
             switch response.result {
             case .success(_):
                 guard let data = response.data else {
+                    completion(.failure(FetcherError.noData))
                     return
                 }
                 
-                guard let recipesDecoded = try? JSONDecoder().decode(Edamam.self, from: data) else {
-                    return
+                switch EdamamDecode.convertToRecipes(data: data) {
+                case .success(let recipes):
+                    completion(.success(recipes))
+                case .failure(let error):
+                    completion(.failure(error))
                 }
-                
-                var recipes = [Recipe]()
-                for hit in recipesDecoded.hits {
-                    
-                    var ingredients = [Ingredient]()
-                    for ingredient in hit.recipe.ingredients {
-                        ingredients.append(Ingredient(name: ingredient.food))
-                    }
-                    
-                    recipes.append(Recipe(name: hit.recipe.label,
-                                          image: hit.recipe.image,
-                                          recipe: hit.recipe.url,
-                                          ingredients: ingredients,
-                                          uri: hit.recipe.uri))
-                }
-                
-                completion(.success(recipes))
             case .failure(let error):
                 print(error)
             }

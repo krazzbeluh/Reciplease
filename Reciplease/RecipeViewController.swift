@@ -44,7 +44,7 @@ class RecipeViewController: UIViewController {
         print(isBookmarked)
         if isBookmarked {
             for index in 0 ... Bookmark.all.count - 1 where Bookmark.all[index] == recipe {
-//                Bookmark.all.remove(at: index)
+                Bookmark.deleteBookmark(Bookmark.all[index])
                 
 //                breaking to avoid fatalError : Index out of range
                 break

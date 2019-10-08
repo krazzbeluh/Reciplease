@@ -10,14 +10,16 @@ import Foundation
 import CoreData
 
 class Bookmark: NSManagedObject {
-    static var all: [Recipe] {
+    static var all: [Bookmark] {
         let request: NSFetchRequest<Bookmark> = Bookmark.fetchRequest()
         guard let bookmarks = try? AppDelegate.viewContext.fetch(request) else {
             return []
         }
-        
+        return bookmarks
+    }
+    static var allRecipes: [Recipe] {
         var recipes = [Recipe]()
-        for bookmark in bookmarks {
+        for bookmark in all {
             let recipeOpt = bookmark.convertToRecipe()
             
             if let recipe = recipeOpt {
@@ -80,6 +82,10 @@ class Bookmark: NSManagedObject {
         } catch {
             print("erreur")
         }
+    }
+    
+    static func deleteBookmark(_ bookmark: Bookmark) {
+        AppDelegate.viewContext.delete(bookmark)
     }
 }
 

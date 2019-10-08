@@ -33,7 +33,7 @@ extension UIViewController: DisplayAlert {
 //            message = "Unable to fetch data"
 //        case NetworkService.NetworkError.responseNot200:
 //            message = "API response error"
-        case DecoderError.unableToDecodeData:
+        case EdamamDecode.DecoderError.unableToDecodeData:
             message = "Unable to decode data"
         default:
             message = "Erreur : \(error)"
