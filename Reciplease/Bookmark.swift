@@ -36,30 +36,36 @@ class Bookmark: NSManagedObject {
         guard let name = self.name else {
             return nil
         }
+        print(name)
         
         guard let imageUrl = self.imageUrl else {
             return nil
         }
+        print(imageUrl)
         
         guard let recipeUrl = self.recipeUrl else {
             return nil
         }
+        print(recipeUrl)
         
         guard let uri = self.uri else {
             return nil
         }
+        print(uri)
         
-        guard let ingredientsSet = self.ingredients/*, ingredientsSet != []*/ else {
+        guard let ingredientsSet = self.ingredients else {
             return nil
         }
         
         // MARK: A revoir
+        guard let bIngredients = ingredientsSet.allObjects as? [BIngredient] else {
+            return nil
+        }
+        
         var ingredients = [Ingredient]()
-        for ingredient in ingredientsSet {
-            if let bIngredient = ingredient as? BIngredient {
-                if let ingredientName = bIngredient.name {
-                    ingredients.append(Ingredient(name: ingredientName))
-                }
+        for bIngredient in bIngredients {
+            if let ingredient = bIngredient.asIngredient() {
+                ingredients.append(ingredient)
             }
         }
         
@@ -76,17 +82,20 @@ class Bookmark: NSManagedObject {
         bookmark.uri = recipe.uri
         bookmark.recipeUrl = recipe.recipeUrl
         bookmark.imageUrl = recipe.imageUrl
-//        bookmark.ingredients = NSSet(object: recipe.ingredients) 
         
-        do {
-            try AppDelegate.viewContext.save()
-        } catch {
-            print("erreur")
+        var bIngredients = [BIngredient]()
+        for ingredient in recipe.ingredients {
+            bIngredients.append(ingredient.asBIngredient())
         }
+        
+        bookmark.ingredients = NSSet(array: bIngredients)
+        
+        AppDelegate.saveContext()
     }
     
     static func deleteBookmark(_ bookmark: Bookmark) {
         AppDelegate.viewContext.delete(bookmark)
+        AppDelegate.saveContext()
     }
 }
 
@@ -97,5 +106,12 @@ class BIngredient: NSManagedObject {
             return []
         }
         return ingredients
+    }
+    
+    func asIngredient() -> Ingredient? {
+        guard let name = self.name else {
+            return nil
+        }
+        return Ingredient(name: name)
     }
 }

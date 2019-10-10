@@ -38,22 +38,28 @@ class RecipesFetcher {
 // MARK: Main func
     func fetchRecipes(completion: @escaping (Result<[Recipe], Error>) -> Void) {
         AF.request(url).responseJSON { response in
-            switch response.result {
-            case .success(_):
-                guard let data = response.data else {
-                    completion(.failure(FetcherError.noData))
-                    return
-                }
-                
-                switch EdamamDecode.convertToRecipes(data: data) {
-                case .success(let recipes):
-                    completion(.success(recipes))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                print(error)
+            self.treatment(response: response) { response in
+                completion(response)
             }
+        }
+    }
+    
+    func treatment(response: AFDataResponse<Any>, completion: @escaping (Result<[Recipe], Error>) -> Void) {
+        switch response.result {
+        case .success(_):
+            guard let data = response.data else {
+                completion(.failure(FetcherError.noData))
+                return
+            }
+            
+            switch EdamamDecode.convertToRecipes(data: data) {
+            case .success(let recipes):
+                completion(.success(recipes))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        case .failure(let error):
+            print(error)
         }
     }
 }

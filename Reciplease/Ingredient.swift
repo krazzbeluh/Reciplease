@@ -20,4 +20,10 @@ class Ingredient {
     init(name: String) {
         self.name = name
     }
+    
+    func asBIngredient() -> BIngredient {
+        let bIngredient = BIngredient(context: AppDelegate.viewContext)
+        bIngredient.name = self.name
+        return bIngredient
+    }
 }

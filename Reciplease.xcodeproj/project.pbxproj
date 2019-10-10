@@ -11,6 +11,7 @@
 		940D3089234B5BFB00309BB9 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 940D3087234B5BFB00309BB9 /* Reciplease.xcdatamodeld */; };
 		940D30AF234B5F2A00309BB9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940D30AE234B5F2A00309BB9 /* Bookmark.swift */; };
 		94115D9B233968D00004F16D /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94115D9A233968D00004F16D /* Recipes.json */; };
+		9427E488234DC419009F3CD1 /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9427E487234DC419009F3CD1 /* NoDataTableViewCell.swift */; };
 		94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E59233133B00022473D /* RecipeTableViewCell.swift */; };
 		94383E5C233134FD0022473D /* RecipeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E5B233134FD0022473D /* RecipeListViewController.swift */; };
 		94383E5F233135670022473D /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 94383E5E233135670022473D /* .swiftlint.yml */; };
@@ -50,6 +51,7 @@
 		940D3088234B5BFB00309BB9 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		940D30AE234B5F2A00309BB9 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
 		94115D9A233968D00004F16D /* Recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
+		9427E487234DC419009F3CD1 /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
 		9431536A233295E00034F306 /* RecipleaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipleaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		94383E59233133B00022473D /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
 		94383E5B233134FD0022473D /* RecipeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				94B684B8232FD3FB00F09A56 /* Main.storyboard */,
+				9427E487234DC419009F3CD1 /* NoDataTableViewCell.swift */,
 				94383E59233133B00022473D /* RecipeTableViewCell.swift */,
 				94E08D6723425A8C00DAB3AC /* IntroduceTableViewCell.swift */,
 				94B684D92330FE1E00F09A56 /* IngredientTableViewCell.swift */,
@@ -402,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9427E488234DC419009F3CD1 /* NoDataTableViewCell.swift in Sources */,
 				94AAB0BD23391299008CA9B3 /* EdamamDecode.swift in Sources */,
 				94B684DA2330FE1E00F09A56 /* IngredientTableViewCell.swift in Sources */,
 				94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */,

@@ -12,20 +12,19 @@ class RecipeListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var recipes = [Recipe]()
-    private var firstLoad = true
     var fromPreSearchVC = false
-    private var gotten = false
-    private var oldBookmarks = [Recipe]()
     
     override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
-        if !fromPreSearchVC && (firstLoad || Bookmark.allRecipes != oldBookmarks) {
+        super.viewWillAppear(animated)
+        if !fromPreSearchVC {
             self.recipes = Bookmark.allRecipes
-            self.gotten = true
-            self.tableView.reloadData()
-            self.oldBookmarks = Bookmark.allRecipes
-            self.firstLoad = false
+            tableView.reloadData()
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,20 +52,16 @@ extension RecipeListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if !fromPreSearchVC && !gotten {
-            return 1
-        } else {
+        if recipes.count > 0 {
             return recipes.count
+        } else {
+            return 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if !fromPreSearchVC && !gotten && Bookmark.all.count > 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath)
-            
-            return cell
-        } else if !fromPreSearchVC && Bookmark.all.count == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "NoBookmarks", for: indexPath)
+        if !fromPreSearchVC && Bookmark.all.count == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NoData", for: indexPath)
             
             return cell
         } else {

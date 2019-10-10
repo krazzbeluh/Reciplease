@@ -72,4 +72,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
+    
+    static func saveContext() {
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
 }
