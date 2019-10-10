@@ -9,36 +9,51 @@
 import XCTest
 @testable import Reciplease
 
+// MARK: Bookmark
 class BookmarkTestCase: XCTestCase {
+    lazy var bookmark: Bookmark = {
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.name = "name"
+        bookmark.imageUrl = "imageUrl"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
+        return bookmark
+    }()
+    
     lazy var unnamedBookmark: Bookmark = {
         let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.imageUrl = "https"
-        bookmark.recipeUrl = "https"
-        bookmark.uri = "https"
+        bookmark.imageUrl = "imageUrl"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         return bookmark
     }()
     
     lazy var bookmarkWithoutImage: Bookmark = {
         let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "https"
-        bookmark.recipeUrl = "https"
-        bookmark.uri = "https"
+        bookmark.name = "name"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         return bookmark
     }()
     
     lazy var bookmarkWithoutRecipe: Bookmark = {
         let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "https"
-        bookmark.imageUrl = "https"
-        bookmark.uri = "https"
+        bookmark.name = "name"
+        bookmark.imageUrl = "himageUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         return bookmark
     }()
     
     lazy var bookmarkWithoutUri: Bookmark = {
         let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "https"
-        bookmark.imageUrl = "https"
-        bookmark.recipeUrl = "https"
+        bookmark.name = "name"
+        bookmark.imageUrl = "imageUrl"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         return bookmark
     }()
 
@@ -107,4 +122,27 @@ class BookmarkTestCase: XCTestCase {
         XCTAssertEqual(Bookmark.all.first, bookmark)
         XCTAssertEqual(Bookmark.allRecipes, [])
     }
+}
+
+// MARK: Ingredient
+
+extension BookmarkTestCase {
+    
+    func testAsIngredientMethodShouldReturnNilIfNoName() {
+        let bIngredient = BIngredient(context: AppDelegate.viewContext)
+        
+        XCTAssertNil(bIngredient.asIngredient())
+    }
+    
+    func testAsIngredientMethodShouldReturnIngredientIfName() {
+        let bIngredient = BIngredient(context: AppDelegate.viewContext)
+        let name = "bIngredient"
+        
+        bIngredient.name = name
+        
+        let ingredient = bIngredient.asIngredient()
+        XCTAssertNotNil(ingredient)
+        XCTAssertEqual(ingredient?.name, name)
+    }
+    
 }

@@ -12,9 +12,7 @@ import CoreData
 class Bookmark: NSManagedObject {
     static var all: [Bookmark] {
         let request: NSFetchRequest<Bookmark> = Bookmark.fetchRequest()
-        guard let bookmarks = try? AppDelegate.viewContext.fetch(request) else {
-            return []
-        }
+        let bookmarks = try! AppDelegate.viewContext.fetch(request)
         return bookmarks
     }
     static var allRecipes: [Recipe] {
@@ -36,31 +34,20 @@ class Bookmark: NSManagedObject {
         guard let name = self.name else {
             return nil
         }
-        print(name)
         
         guard let imageUrl = self.imageUrl else {
             return nil
         }
-        print(imageUrl)
         
         guard let recipeUrl = self.recipeUrl else {
             return nil
         }
-        print(recipeUrl)
         
         guard let uri = self.uri else {
             return nil
         }
-        print(uri)
         
-        guard let ingredientsSet = self.ingredients else {
-            return nil
-        }
-        
-        // MARK: A revoir
-        guard let bIngredients = ingredientsSet.allObjects as? [BIngredient] else {
-            return nil
-        }
+        let bIngredients = self.ingredients!.allObjects as! [BIngredient]
         
         var ingredients = [Ingredient]()
         for bIngredient in bIngredients {
@@ -100,14 +87,6 @@ class Bookmark: NSManagedObject {
 }
 
 class BIngredient: NSManagedObject {
-    static var all: [BIngredient] {
-        let request: NSFetchRequest<BIngredient> = BIngredient.fetchRequest()
-        guard let ingredients = try? AppDelegate.viewContext.fetch(request) else {
-            return []
-        }
-        return ingredients
-    }
-    
     func asIngredient() -> Ingredient? {
         guard let name = self.name else {
             return nil

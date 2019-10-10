@@ -33,12 +33,4 @@ extension Recipe: Equatable {
     static func == (lhs: Recipe, rhs: Recipe) -> Bool {
         return lhs.uri == rhs.uri
     }
-    
-    static func == (lhs: Recipe, rhs: Bookmark) -> Bool {
-        return lhs.uri == rhs.uri
-    }
-    
-    static func == (lhs: Bookmark, rhs: Recipe) -> Bool {
-        return rhs == lhs
-    }
 }

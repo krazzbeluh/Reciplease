@@ -15,7 +15,7 @@ class RecipeViewController: UIViewController {
     var recipe: Recipe!
     
     private var isBookmarked: Bool {
-        for bookmark in Bookmark.all where bookmark == recipe {
+        for bookmark in Bookmark.all where bookmark.uri == recipe.uri {
             return true
         }
         
@@ -43,7 +43,7 @@ class RecipeViewController: UIViewController {
     private func switchBookmarkRecipe() {
         print(isBookmarked)
         if isBookmarked {
-            for index in 0 ... Bookmark.all.count - 1 where Bookmark.all[index] == recipe {
+            for index in 0 ... Bookmark.all.count - 1 where Bookmark.all[index].uri == recipe.uri {
                 Bookmark.deleteBookmark(Bookmark.all[index])
                 
 //                breaking to avoid fatalError : Index out of range
