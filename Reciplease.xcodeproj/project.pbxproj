@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		497341DB8A44E350254232C7 /* libPods-RecipleaseTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 860C4B475DCA6EE552294A94 /* libPods-RecipleaseTests.a */; };
 		940D3089234B5BFB00309BB9 /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 940D3087234B5BFB00309BB9 /* Reciplease.xcdatamodeld */; };
-		940D30AF234B5F2A00309BB9 /* Bookmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940D30AE234B5F2A00309BB9 /* Bookmark.swift */; };
+		940D30AF234B5F2A00309BB9 /* Bookmark+BIngredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940D30AE234B5F2A00309BB9 /* Bookmark+BIngredient.swift */; };
 		94115D9B233968D00004F16D /* Recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94115D9A233968D00004F16D /* Recipes.json */; };
 		9427E488234DC419009F3CD1 /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9427E487234DC419009F3CD1 /* NoDataTableViewCell.swift */; };
 		94383E5A233133B00022473D /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94383E59233133B00022473D /* RecipeTableViewCell.swift */; };
@@ -51,7 +51,7 @@
 		860C4B475DCA6EE552294A94 /* libPods-RecipleaseTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RecipleaseTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E732413D98FA5EF1872FD6B /* Pods-Reciplease.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.release.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.release.xcconfig"; sourceTree = "<group>"; };
 		940D3088234B5BFB00309BB9 /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
-		940D30AE234B5F2A00309BB9 /* Bookmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bookmark.swift; sourceTree = "<group>"; };
+		940D30AE234B5F2A00309BB9 /* Bookmark+BIngredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bookmark+BIngredient.swift"; sourceTree = "<group>"; };
 		94115D9A233968D00004F16D /* Recipes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Recipes.json; sourceTree = "<group>"; };
 		9427E487234DC419009F3CD1 /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
 		9431536A233295E00034F306 /* RecipleaseTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecipleaseTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -144,7 +144,7 @@
 		94383E54233109A10022473D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				940D30AE234B5F2A00309BB9 /* Bookmark.swift */,
+				940D30AE234B5F2A00309BB9 /* Bookmark+BIngredient.swift */,
 				94BA535A233264D100CE5622 /* Recipe.swift */,
 				94BA535C2332657C00CE5622 /* Ingredient.swift */,
 				94AAB0B42338F2A3008CA9B3 /* Networking */,
@@ -425,7 +425,7 @@
 				940D3089234B5BFB00309BB9 /* Reciplease.xcdatamodeld in Sources */,
 				94E08D6823425A8C00DAB3AC /* IntroduceTableViewCell.swift in Sources */,
 				94DAAD242336149F00AEF5CD /* UIViewController + Extension.swift in Sources */,
-				940D30AF234B5F2A00309BB9 /* Bookmark.swift in Sources */,
+				940D30AF234B5F2A00309BB9 /* Bookmark+BIngredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,16 +9,17 @@
 import Foundation
 
 class Recipe {
-    var name: String
-    var imageUrl: String
-    var recipeUrl: String
-    var ingredients: [Ingredient]
-    var uri: String
+    var name: String // the recipe name
+    var imageUrl: String // the image url
+    var recipeUrl: String // the complete recipe url
+    var ingredients: [Ingredient] // the ingredients
+    var uri: String // the identifier
     
     private struct Keys {
-        static let bookmarks = "bookmarks"
+        static let bookmarks = "bookmarks" // avoids keyboard typos
     }
     
+//    inits the object
     init(name: String, image: String, recipe: String, ingredients: [Ingredient], uri: String) {
         self.name = name
         imageUrl = image
@@ -29,6 +30,7 @@ class Recipe {
     
 }
 
+// used to compare 2 recipes
 extension Recipe: Equatable {
     static func == (lhs: Recipe, rhs: Recipe) -> Bool {
         return lhs.uri == rhs.uri

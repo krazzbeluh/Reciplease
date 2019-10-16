@@ -9,16 +9,16 @@
 import Foundation
 import UIKit
 
-protocol DisplayAlert: UIViewController {
+protocol DisplayAlert: UIViewController { // protocol to add method to every UIViewController
     func showAlert(with type: Error)
 }
 
 extension UIViewController: DisplayAlert {
-    enum UIError: Error {
+    enum UIError: Error { // UIErrors
         case nilInTextField
     }
     
-    func showAlert(with error: Error) {
+    func showAlert(with error: Error) { // configures alert
         let message: String
         switch error {
         case UIError.nilInTextField:
@@ -27,12 +27,10 @@ extension UIViewController: DisplayAlert {
             message = "This ingredient is already in list"
         case Ingredient.IngredientListError.voidList:
             message = "Please insert ingredient"
-//        case NetworkService.NetworkError.incorectUrl:
-//            message = "Invalid URL"
-//        case NetworkService.NetworkError.noData:
-//            message = "Unable to fetch data"
-//        case NetworkService.NetworkError.responseNot200:
-//            message = "API response error"
+        case RecipesFetcher.FetcherError.incorectUrl:
+            message = "Invalid URL"
+        case RecipesFetcher.FetcherError.noData:
+            message = "Unable to fetch data"
         case EdamamDecode.DecoderError.unableToDecodeData:
             message = "Unable to decode data"
         default:
@@ -41,7 +39,7 @@ extension UIViewController: DisplayAlert {
         sendAlert(message: message)
     }
     
-    private func sendAlert(message: String) {
+    private func sendAlert(message: String) { // sends alert
         let alertVC = UIAlertController(title: "error", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)

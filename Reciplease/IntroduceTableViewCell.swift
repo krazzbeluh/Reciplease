@@ -10,10 +10,10 @@ import UIKit
 import Kingfisher
 
 class IntroduceTableViewCell: UITableViewCell {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var title: UILabel! // recipe name
+    @IBOutlet weak var recipeImage: UIImageView! // recipe image
     
-    func configure(title: String, image: String) {
+    func configure(title: String, image: String) { // configures cell
         self.title.text = title
         recipeImage.kf.setImage(with: URL(string: image)) { result in
             switch result {

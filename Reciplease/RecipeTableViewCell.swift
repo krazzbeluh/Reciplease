@@ -10,18 +10,18 @@ import UIKit
 import Kingfisher
 
 class RecipeTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ingredientsList: UILabel!
-    @IBOutlet weak var dishButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel! // recipe name
+    @IBOutlet weak var ingredientsList: UILabel! // non-exhaustive ingredients list in recipe
+    @IBOutlet weak var dishButton: UIButton! // button to access RecipeVC
     
-    override func layoutSubviews() {
+    override func layoutSubviews() { // setting up image disposition in button
         super.layoutSubviews()
         dishButton.contentHorizontalAlignment = .fill
         dishButton.contentVerticalAlignment = .fill
         dishButton.imageView?.contentMode = .scaleAspectFill
     }
     
-    func configure(recipeId: Int, recipe: Recipe) {
+    func configure(recipeId: Int, recipe: Recipe) { // configures cell
         nameLabel.text = recipe.name
         
         dishButton.titleLabel?.text = String(recipeId)

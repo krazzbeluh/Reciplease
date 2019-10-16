@@ -27,7 +27,7 @@ class FetcherTestCase: XCTestCase {
 
     func testUrl() {
         Ingredient.listForSearch = ["Ingredient", "Ingredient2"]
-        let expectedUrl = "https://api.edamam.com/search?app_id=API%20signup&app_key=fed2ff4a&q=Ingredient,%20Ingredient2&from=0&to=20" //swiftlint:disable:this line_length
+        let expectedUrl = "https://api.edamam.com/search?app_id=APIsignup&app_key=fed2ff4a&q=Ingredient,Ingredient2&from=0&to=20" //swiftlint:disable:this line_length
         XCTAssertEqual(recipesFetcher.url, expectedUrl)
     }
     

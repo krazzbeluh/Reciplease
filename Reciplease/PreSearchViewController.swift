@@ -8,24 +8,20 @@
 
 import UIKit
 
-class PreSearchViewController: UIViewController {
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var ingredientTextField: UITextField!
+class PreSearchViewController: UIViewController { // first VC in app
+    @IBOutlet weak var tableView: UITableView! // ingredients list
+    @IBOutlet weak var ingredientTextField: UITextField! // textfield to add wishes ingredients
     @IBOutlet weak var searchButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! // activity indicator while API load
     
-    private var recipes: [Recipe]?
+    private var recipes = [Recipe]() // recipe list (after api response)
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() { // loads table view
+        super.viewDidLoad()
         tableView.reloadData()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    func fetchData(completion: @escaping (Result<[Recipe], Error>) -> Void) {
+    private func fetchData(completion: @escaping (Result<[Recipe], Error>) -> Void) { // fetchs data from api with recipesFetcher
         RecipesFetcher().fetchRecipes { result in
             switch result {
             case .success(let recipes):
@@ -36,26 +32,21 @@ class PreSearchViewController: UIViewController {
         }
     }
     
-    func switchActivityIndicator(shown: Bool) {
+    private func switchActivityIndicator(shown: Bool) { // switchs activity indicator
         activityIndicator.isHidden = !shown
         searchButton.isHidden = shown
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { // preparing segue to perform
         if segue.identifier == "segueToRequestList" {
             let successVC = segue.destination as! RecipeListViewController
-            
-            guard let recipes = recipes else {
-//                showAlert(with: NetworkService.NetworkError.emptyResponse)
-                return
-            }
             
             successVC.recipes = recipes
             successVC.fromPreSearchVC = true
         }
     }
     
-    @IBAction func didTapSearchButton(_ sender: Any) {
+    @IBAction func didTapSearchButton(_ sender: Any) { // launches fetcher if there's at least 1 ingredient
         guard Ingredient.listForSearch.count > 0 else {
             showAlert(with: Ingredient.IngredientListError.voidList)
             return
@@ -63,7 +54,7 @@ class PreSearchViewController: UIViewController {
         searchRecipesAndPerformSegue()
     }
     
-    func searchRecipesAndPerformSegue() {
+    private func searchRecipesAndPerformSegue() { // searches recipes and perform segue if no error
         switchActivityIndicator(shown: true)
         fetchData { result in
             switch result {
@@ -77,13 +68,9 @@ class PreSearchViewController: UIViewController {
         }
     }
     
-    func addIngredient(_ ingredient: String?) {
-        guard let ingredient = ingredient else {
-            showAlert(with: UIError.nilInTextField)
-            return
-        }
-
-        guard ingredient != "" else {
+    private func addIngredient(_ ingredient: String?) { // adds ingredient to list if not nil and not already in list
+        guard let ingredient = ingredient,
+            ingredient != "" else {
             showAlert(with: UIError.nilInTextField)
             return
         }
@@ -100,7 +87,7 @@ class PreSearchViewController: UIViewController {
         ingredientTextField.text = ""
     }
     
-    private func addIngredient() {
+    private func addIngredient() { // adds ingredient to list and reloads table view
         addIngredient(ingredientTextField.text)
         
         tableView.reloadData()
@@ -110,7 +97,7 @@ class PreSearchViewController: UIViewController {
         addIngredient()
     }
     
-    private func clearList() {
+    private func clearList() { // clears ingredients list and reloads table view
         Ingredient.listForSearch = []
         tableView.reloadData()
     }
@@ -125,7 +112,7 @@ class PreSearchViewController: UIViewController {
     
 }
 
-extension PreSearchViewController: UITableViewDataSource {
+extension PreSearchViewController: UITableViewDataSource { // manages table view
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -149,7 +136,7 @@ extension PreSearchViewController: UITableViewDataSource {
     
 }
 
-extension PreSearchViewController: UITextFieldDelegate {
+extension PreSearchViewController: UITextFieldDelegate { // manages text field
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if ingredientTextField.text != nil && ingredientTextField.text != "" {
             addIngredient()

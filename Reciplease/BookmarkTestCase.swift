@@ -56,6 +56,11 @@ class BookmarkTestCase: XCTestCase {
         bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         return bookmark
     }()
+    
+    lazy var bookmarkWithoutIngredients: Bookmark = {
+        
+        return bookmark
+    }()
 
     override func setUp() {
         if Bookmark.all.count > 0 {
@@ -121,6 +126,18 @@ class BookmarkTestCase: XCTestCase {
         
         XCTAssertEqual(Bookmark.all.first, bookmark)
         XCTAssertEqual(Bookmark.allRecipes, [])
+    }
+    
+    func testBookmarkWithoutIngredientsReturnsNil() {
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.name = "name"
+        bookmark.imageUrl = "imageUrl"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.uri =  "uri"
+        bookmark.ingredients = nil
+        
+        XCTAssertEqual(Bookmark.all.first, bookmark)
+        XCTAssertEqual(Bookmark.allRecipes, [Recipe]())
     }
 }
 

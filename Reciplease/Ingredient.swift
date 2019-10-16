@@ -9,19 +9,19 @@
 import Foundation
 
 class Ingredient {
-    enum IngredientListError: Error {
+    enum IngredientListError: Error { // errors about ingredients list
         case ingredientAlreadyInList, voidList
     }
     
-    static var listForSearch: [String] = []
+    static var listForSearch: [String] = [] // the ingredients names list typed by user in preSearchVC
     
-    let name: String
+    let name: String // ingredient name
     
-    init(name: String) {
+    init(name: String) { // inits an ingredient
         self.name = name
     }
     
-    func asBIngredient() -> BIngredient {
+    func asBIngredient() -> BIngredient { // converts self to BIngredient
         let bIngredient = BIngredient(context: AppDelegate.viewContext)
         bIngredient.name = self.name
         return bIngredient

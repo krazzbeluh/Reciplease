@@ -9,9 +9,9 @@
 import UIKit
 
 class IngredientTableViewCell: UITableViewCell {
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel! // ingredient name
     
-    func configure(name: String) {
+    func configure(name: String) { // configures cell
         nameLabel.text = name
     }
 
