@@ -21,7 +21,8 @@ class PreSearchViewController: UIViewController { // first VC in app
         tableView.reloadData()
     }
     
-    private func fetchData(completion: @escaping (Result<[Recipe], Error>) -> Void) { // fetchs data from api with recipesFetcher
+    // fetchs data from api with recipesFetcher
+    private func fetchData(completion: @escaping (Result<[Recipe], Error>) -> Void) {
         RecipesFetcher().fetchRecipes { result in
             switch result {
             case .success(let recipes):

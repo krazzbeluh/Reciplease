@@ -11,56 +11,6 @@ import XCTest
 
 // MARK: Bookmark
 class BookmarkTestCase: XCTestCase {
-    lazy var bookmark: Bookmark = {
-        let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "name"
-        bookmark.imageUrl = "imageUrl"
-        bookmark.recipeUrl = "recipeUrl"
-        bookmark.uri = "uri"
-        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
-        return bookmark
-    }()
-    
-    lazy var unnamedBookmark: Bookmark = {
-        let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.imageUrl = "imageUrl"
-        bookmark.recipeUrl = "recipeUrl"
-        bookmark.uri = "uri"
-        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
-        return bookmark
-    }()
-    
-    lazy var bookmarkWithoutImage: Bookmark = {
-        let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "name"
-        bookmark.recipeUrl = "recipeUrl"
-        bookmark.uri = "uri"
-        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
-        return bookmark
-    }()
-    
-    lazy var bookmarkWithoutRecipe: Bookmark = {
-        let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "name"
-        bookmark.imageUrl = "himageUrl"
-        bookmark.uri = "uri"
-        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
-        return bookmark
-    }()
-    
-    lazy var bookmarkWithoutUri: Bookmark = {
-        let bookmark = Bookmark(context: AppDelegate.viewContext)
-        bookmark.name = "name"
-        bookmark.imageUrl = "imageUrl"
-        bookmark.recipeUrl = "recipeUrl"
-        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
-        return bookmark
-    }()
-    
-    lazy var bookmarkWithoutIngredients: Bookmark = {
-        
-        return bookmark
-    }()
 
     override func setUp() {
         if Bookmark.all.count > 0 {
@@ -97,32 +47,44 @@ class BookmarkTestCase: XCTestCase {
     }
     
     func testBookmarkUnnamedReturnsNil() {
-        let bookmark = unnamedBookmark
-        try! AppDelegate.viewContext.save()
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.imageUrl = "imageUrl"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         
         XCTAssertEqual(Bookmark.all.first, bookmark)
         XCTAssertEqual(Bookmark.allRecipes, [])
     }
 
     func testBookmarkWithoutImageReturnsNil() {
-        let bookmark = bookmarkWithoutImage
-        try! AppDelegate.viewContext.save()
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.name = "name"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         
         XCTAssertEqual(Bookmark.all.first, bookmark)
         XCTAssertEqual(Bookmark.allRecipes, [])
     }
     
     func testBookmarkWithoutRecipeUrlReturnsNil() {
-        let bookmark = bookmarkWithoutRecipe
-        try! AppDelegate.viewContext.save()
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.name = "name"
+        bookmark.imageUrl = "himageUrl"
+        bookmark.uri = "uri"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         
         XCTAssertEqual(Bookmark.all.first, bookmark)
         XCTAssertEqual(Bookmark.allRecipes, [])
     }
     
     func testBookmarkWithoutUriReturnsNil() {
-        let bookmark = bookmarkWithoutUri
-        try! AppDelegate.viewContext.save()
+        let bookmark = Bookmark(context: AppDelegate.viewContext)
+        bookmark.name = "name"
+        bookmark.imageUrl = "imageUrl"
+        bookmark.recipeUrl = "recipeUrl"
+        bookmark.ingredients = [Ingredient(name: "ingredient").asBIngredient()]
         
         XCTAssertEqual(Bookmark.all.first, bookmark)
         XCTAssertEqual(Bookmark.allRecipes, [])
